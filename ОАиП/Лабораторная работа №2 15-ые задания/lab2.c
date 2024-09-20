@@ -3,15 +3,35 @@
 #include <locale.h>
 #include <conio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 
-
-int main()
-{
+int main() {
 	char* locale = setlocale(LC_ALL, "");
 	hello();
 }
 
+int input()
+{
+	int n = 0;
+	char input[100];
+	fgets(input, sizeof(input), stdin);
+	for (int i = 0; input[i] != '\0'; i++) if (input[i] < '0' || input[i] > '9') n++;
+	if (n > 1)
+	{
+		printf("явно вы ввели что-то не то\n");
+		printf("Press any key to continue...\n");
+		_getch();
+		system("cls");
+		hello();
+	}
+	else
+	{
+		sscanf_s(input, "%d", &n);
+		return n;
+	}
+
+}
 hello(void)
 {
 	int n;
@@ -76,7 +96,7 @@ int luckyTick()
 	int num, a, b, c, d;
 
 	printf("¬ведите номер билета(четырЄхзначный): \n");
-	scanf_s("%d", &num);
+	num = input();
 	if (num < 1000 || num > 9999) printf("” билета номер четырЄхзначный!\n");
 	else
 	{
@@ -101,14 +121,14 @@ int geometrickProgression(void)
 	double sum;
 
 	printf("¬ведите первый член геометрической прогрессии\n");
-	scanf_s("%d", &b);
+	b = input();
 	printf("¬ведите знаменатель прогрессии\n");
-	scanf_s("%d", &q);
+	q = input();
 	if (q == 1) printf("«наменатель не может быть равен 1!\n");
 	else
 	{
 		printf("¬ведите количесво членов прогрессии\n");
-		scanf_s("%d", &n);
+		n = input();
 		sum = (double)(b * (1 - pow((double)q, n)) / (1. - q));
 		printf("—умма вашей геометрической прогрессии равна %.3f\n", sum);
 	}
@@ -125,7 +145,7 @@ int age()
 	int K;
 	 
 	printf("¬ведите свой возраст(от 0 да 9): ");
-	scanf_s("%d", &K); 
+	K = input();
 	switch (K)
 	{
 	case 0: 

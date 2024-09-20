@@ -18,8 +18,5 @@
     <ClCompile Include="lab2.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="config.c">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
