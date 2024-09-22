@@ -8,7 +8,6 @@
 
 int main() {
 	char* locale = setlocale(LC_ALL, "");
-	system("chcp 1251");
 
 	hello();
 }
