@@ -10,10 +10,10 @@ int main()
 {
 	char* locale = setlocale(LC_ALL, "");
 
-	hello();
+	mainMenu();
 }
 
-int input()
+int isDigit()
 {
 	int n = 0;
 	char input[100];
@@ -25,7 +25,7 @@ int input()
 		printf("Press any key to continue...\n");
 		_getch();
 		system("cls");
-		hello();
+		mainMenu();
 	}
 	else
 	{
@@ -34,7 +34,7 @@ int input()
 	}
 
 }
-hello(void)
+mainMenu(void)
 {
 	int n;
 	printf("Что вы ходите сделать?\n");
@@ -49,7 +49,7 @@ hello(void)
 		printf("Press any key to continue...\n");
 		_getch();
 		system("cls");
-		hello();
+		mainMenu();
 	}
 	else
 	{
@@ -60,21 +60,21 @@ hello(void)
 			{
 				system("cls");
 				geometrickProgression();
-				hello();
+				mainMenu();
 				break;
 			}
 			case 2:
 			{
 				system("cls");
 				luckyTick();
-				hello();
+				mainMenu();
 				break;
 			}
 			case 3:
 			{
 				system("cls");
 				age();
-				hello();
+				mainMenu();
 				break;
 			}
 			case 4:
@@ -87,7 +87,7 @@ hello(void)
 				printf("Press any key to continue...\n");
 				_getch();
 				system("cls");
-				hello();
+				mainMenu();
 			}
 		}
 	}
@@ -98,7 +98,7 @@ int luckyTick()
 	int num, a, b, c, d;
 
 	printf("Введите номер билета(четырёхзначный): \n");
-	num = input();
+	num = isDigit();
 	if (num < 1000 || num > 9999) printf("У билета номер четырёхзначный!\n");
 	else
 	{
@@ -123,14 +123,14 @@ int geometrickProgression(void)
 	double sum;
 
 	printf("Введите первый член геометрической прогрессии\n");
-	b = input();
+	b = isDigit();
 	printf("Введите знаменатель прогрессии\n");
-	q = input();
+	q = isDigit();
 	if (q == 1) printf("Знаменатель не может быть равен 1!\n");
 	else
 	{
 		printf("Введите количесво членов прогрессии\n");
-		n = input();
+		n = isDigit();
 		sum = (double)(b * (1 - pow((double)q, n)) / (1. - q));
 		printf("Сумма вашей геометрической прогрессии равна %.3f\n", sum);
 	}
@@ -147,7 +147,7 @@ int age()
 	int K;
 	 
 	printf("Введите свой возраст(от 0 да 9): ");
-	K = input();
+	K = isDigit();
 	switch (K)
 	{
 	case 0: 
