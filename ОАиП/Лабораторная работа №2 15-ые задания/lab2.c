@@ -34,7 +34,7 @@ int isDigit()
 	}
 
 }
-mainMenu(void)
+mainMenu()
 {
 	int n;
 	printf("Что вы ходите сделать?\n");
@@ -61,21 +61,18 @@ mainMenu(void)
 				system("cls");
 				geometrickProgression();
 				mainMenu();
-				break;
 			}
 			case 2:
 			{
 				system("cls");
 				luckyTick();
 				mainMenu();
-				break;
 			}
 			case 3:
 			{
 				system("cls");
 				age();
 				mainMenu();
-				break;
 			}
 			case 4:
 			{
@@ -117,7 +114,7 @@ int luckyTick()
 	return 0;
 }
 
-int geometrickProgression(void)
+int geometrickProgression()
 {
 	int b, q, n;
 	double sum;
