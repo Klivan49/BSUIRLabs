@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <math.h>
 #include <locale.h>
 #include <conio.h>
@@ -6,7 +6,8 @@
 #include <ctype.h>
 
 
-int main() {
+int main() 
+{
 	char* locale = setlocale(LC_ALL, "");
 
 	hello();
@@ -20,7 +21,7 @@ int input()
 	for (int i = 0; input[i] != '\0'; i++) if (input[i] < '0' || input[i] > '9') n++;
 	if (n > 1)
 	{
-		printf("Явно вы ввели что-то не то\n");
+		printf("РЇРІРЅРѕ РІС‹ РІРІРµР»Рё С‡С‚Рѕ-С‚Рѕ РЅРµ С‚Рѕ\n");
 		printf("Press any key to continue...\n");
 		_getch();
 		system("cls");
@@ -36,15 +37,15 @@ int input()
 hello(void)
 {
 	int n;
-	printf("Что вы ходите сделать?\n");
-	printf("1 -- Найти сумму геометрической прогрессии\n");
-	printf("2 -- Узнать, счастливый ли у вас билет\n");
-	printf("3 -- Узнать свой возраст\n");
-	printf("4 -- Выход\n");
+	printf("Р§С‚Рѕ РІС‹ С…РѕРґРёС‚Рµ СЃРґРµР»Р°С‚СЊ?\n");
+	printf("1 -- РќР°Р№С‚Рё СЃСѓРјРјСѓ РіРµРѕРјРµС‚СЂРёС‡РµСЃРєРѕР№ РїСЂРѕРіСЂРµСЃСЃРёРё\n");
+	printf("2 -- РЈР·РЅР°С‚СЊ, СЃС‡Р°СЃС‚Р»РёРІС‹Р№ Р»Рё Сѓ РІР°СЃ Р±РёР»РµС‚\n");
+	printf("3 -- РЈР·РЅР°С‚СЊ СЃРІРѕР№ РІРѕР·СЂР°СЃС‚\n");
+	printf("4 -- Р’С‹С…РѕРґ\n");
 	n = _getch();
 	if (n > 57 || n < 48)
 	{
-		printf("Некоректный ввод\n");
+		printf("РќРµРєРѕСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ\n");
 		printf("Press any key to continue...\n");
 		_getch();
 		system("cls");
@@ -82,7 +83,7 @@ hello(void)
 			}
 			default:
 			{
-				printf("Некоректный ввод\n");
+				printf("РќРµРєРѕСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ\n");
 				printf("Press any key to continue...\n");
 				_getch();
 				system("cls");
@@ -96,9 +97,9 @@ int luckyTick()
 {
 	int num, a, b, c, d;
 
-	printf("Введите номер билета(четырёхзначный): \n");
+	printf("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ Р±РёР»РµС‚Р°(С‡РµС‚С‹СЂС‘С…Р·РЅР°С‡РЅС‹Р№): \n");
 	num = input();
-	if (num < 1000 || num > 9999) printf("У билета номер четырёхзначный!\n");
+	if (num < 1000 || num > 9999) printf("РЈ Р±РёР»РµС‚Р° РЅРѕРјРµСЂ С‡РµС‚С‹СЂС‘С…Р·РЅР°С‡РЅС‹Р№!\n");
 	else
 	{
 		a = num / 1000;
@@ -107,8 +108,8 @@ int luckyTick()
 		d = d % 100;
 		c = d / 10;
 		d = d % 10;
-		if (a + b == c + d) printf("У вас СЧАСТЛИВЫЙ БИЛЕТ!\n");
-		else printf("Повезёт в следующий раз\n");
+		if (a + b == c + d) printf("РЈ РІР°СЃ РЎР§РђРЎРўР›РР’Р«Р™ Р‘РР›Р•Рў!\n");
+		else printf("РџРѕРІРµР·С‘С‚ РІ СЃР»РµРґСѓСЋС‰РёР№ СЂР°Р·\n");
 	}
 	printf("Press any key to continue...\n");
 	_getch();
@@ -121,17 +122,17 @@ int geometrickProgression(void)
 	int b, q, n;
 	double sum;
 
-	printf("Введите первый член геометрической прогрессии\n");
+	printf("Р’РІРµРґРёС‚Рµ РїРµСЂРІС‹Р№ С‡Р»РµРЅ РіРµРѕРјРµС‚СЂРёС‡РµСЃРєРѕР№ РїСЂРѕРіСЂРµСЃСЃРёРё\n");
 	b = input();
-	printf("Введите знаменатель прогрессии\n");
+	printf("Р’РІРµРґРёС‚Рµ Р·РЅР°РјРµРЅР°С‚РµР»СЊ РїСЂРѕРіСЂРµСЃСЃРёРё\n");
 	q = input();
-	if (q == 1) printf("Знаменатель не может быть равен 1!\n");
+	if (q == 1) printf("Р—РЅР°РјРµРЅР°С‚РµР»СЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ СЂР°РІРµРЅ 1!\n");
 	else
 	{
-		printf("Введите количесво членов прогрессии\n");
+		printf("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃРІРѕ С‡Р»РµРЅРѕРІ РїСЂРѕРіСЂРµСЃСЃРёРё\n");
 		n = input();
 		sum = (double)(b * (1 - pow((double)q, n)) / (1. - q));
-		printf("Сумма вашей геометрической прогрессии равна %.3f\n", sum);
+		printf("РЎСѓРјРјР° РІР°С€РµР№ РіРµРѕРјРµС‚СЂРёС‡РµСЃРєРѕР№ РїСЂРѕРіСЂРµСЃСЃРёРё СЂР°РІРЅР° %.3f\n", sum);
 	}
 
 	printf("Press any key to continue...\n");
@@ -145,63 +146,63 @@ int age()
 {
 	int K;
 	 
-	printf("Введите свой возраст(от 0 да 9): ");
+	printf("Р’РІРµРґРёС‚Рµ СЃРІРѕР№ РІРѕР·СЂР°СЃС‚(РѕС‚ 0 РґР° 9): ");
 	K = input();
 	switch (K)
 	{
 	case 0: 
 	{
-		printf("Мне %d лет:\n", K);
+		printf("РњРЅРµ %d Р»РµС‚:\n", K);
 		break;
 	}
 	case 1:
 	{
-		printf("Мне %d год\n", K);
+		printf("РњРЅРµ %d РіРѕРґ\n", K);
 		break;
 	}
 	case 2:
 	{
-		printf("Мне %d года\n", K);
+		printf("РњРЅРµ %d РіРѕРґР°\n", K);
 		break;
 	}
 	case 3:
 	{
-		printf("Мне %d года\n", K);
+		printf("РњРЅРµ %d РіРѕРґР°\n", K);
 		break;
 	}
 	case 4:
 	{
-		printf("Мне %d года\n", K);
+		printf("РњРЅРµ %d РіРѕРґР°\n", K);
 		break;
 	}
 	case 5:
 	{
-		printf("Мне %d лет\n", K);
+		printf("РњРЅРµ %d Р»РµС‚\n", K);
 		break;
 	}
 	case 6:
 	{
-		printf("Мне %d лет\n", K);
+		printf("РњРЅРµ %d Р»РµС‚\n", K);
 		break;
 	}
 	case 7:
 	{
-		printf("Мне %d лет\n", K);
+		printf("РњРЅРµ %d Р»РµС‚\n", K);
 		break;
 	}
 	case 8:
 	{
-		printf("Мне %d лет\n", K);
+		printf("РњРЅРµ %d Р»РµС‚\n", K);
 		break;
 	}
 	case 9:
 	{
-		printf("Мне %d лет\n", K);
+		printf("РњРЅРµ %d Р»РµС‚\n", K);
 		break;
 	}
 	default:
 	{
-		printf("Ну просили же от 0 до 9\n");
+		printf("РќСѓ РїСЂРѕСЃРёР»Рё Р¶Рµ РѕС‚ 0 РґРѕ 9\n");
 		break;
 	}
 	}
