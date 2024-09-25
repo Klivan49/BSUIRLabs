@@ -1,16 +1,20 @@
 ﻿#include <stdio.h>
 #include <math.h>
 #include <locale.h>
-#include <conio.h>
 #include <stdlib.h>
-#include <ctype.h>
 
 
-int main() 
+int mainMenu(void);
+int isDigit(void);
+int luckyTick();
+int geometrickProgression();
+int age();
+
+int main()
 {
-	char* locale = setlocale(LC_ALL, "");
+	char *locale = setlocale(LC_ALL, "");
 
-	mainMenu();
+	while (mainMenu());
 }
 
 int isDigit()
@@ -32,62 +36,42 @@ int isDigit()
 		sscanf_s(input, "%d", &n);
 		return n;
 	}
-
+	return 0;
 }
-mainMenu()
+int mainMenu()
 {
+
 	int n;
 	printf("Что вы ходите сделать?\n");
 	printf("1 -- Найти сумму геометрической прогрессии\n");
 	printf("2 -- Узнать, счастливый ли у вас билет\n");
 	printf("3 -- Узнать свой возраст\n");
 	printf("4 -- Выход\n");
-	n = _getch();
-	if (n > 57 || n < 48)
+	n = isDigit();
+	system("cls");
+	switch (n)
+	{
+	case 1:
+		geometrickProgression();
+		break;
+	case 2:
+		luckyTick();
+		break;
+	case 3:
+		age();
+		break;
+
+	case 4:
+		return 0;
+	default:
 	{
 		printf("Некоректный ввод\n");
 		printf("Press any key to continue...\n");
 		_getch();
 		system("cls");
-		mainMenu();
 	}
-	else
-	{
-		n -= 48;
-		switch (n)
-		{
-			case 1:
-			{
-				system("cls");
-				geometrickProgression();
-				mainMenu();
-			}
-			case 2:
-			{
-				system("cls");
-				luckyTick();
-				mainMenu();
-			}
-			case 3:
-			{
-				system("cls");
-				age();
-				mainMenu();
-			}
-			case 4:
-			{
-				break;
-			}
-			default:
-			{
-				printf("Некоректный ввод\n");
-				printf("Press any key to continue...\n");
-				_getch();
-				system("cls");
-				mainMenu();
-			}
-		}
 	}
+	return 1;
 }
 
 int luckyTick()
@@ -96,7 +80,8 @@ int luckyTick()
 
 	printf("Введите номер билета(четырёхзначный): \n");
 	num = isDigit();
-	if (num < 1000 || num > 9999) printf("У билета номер четырёхзначный!\n");
+	if (num < 1000 || num > 9999)
+		printf("У билета номер четырёхзначный!\n");
 	else
 	{
 		a = num / 1000;
@@ -105,8 +90,10 @@ int luckyTick()
 		d = d % 100;
 		c = d / 10;
 		d = d % 10;
-		if (a + b == c + d) printf("У вас СЧАСТЛИВЫЙ БИЛЕТ!\n");
-		else printf("Повезёт в следующий раз\n");
+		if (a + b == c + d)
+			printf("У вас СЧАСТЛИВЫЙ БИЛЕТ!\n");
+		else
+			printf("Повезёт в следующий раз\n");
 	}
 	printf("Press any key to continue...\n");
 	_getch();
@@ -123,7 +110,8 @@ int geometrickProgression()
 	b = isDigit();
 	printf("Введите знаменатель прогрессии\n");
 	q = isDigit();
-	if (q == 1) printf("Знаменатель не может быть равен 1!\n");
+	if (q == 1)
+		printf("Знаменатель не может быть равен 1!\n");
 	else
 	{
 		printf("Введите количесво членов прогрессии\n");
@@ -138,66 +126,28 @@ int geometrickProgression()
 	return 0;
 }
 
-
 int age()
 {
-	int K;
-	 
+	int K, n;
+
 	printf("Введите свой возраст(от 0 да 9): ");
 	K = isDigit();
-	switch (K)
+	if (K == 0 || (K > 4 && K <= 9)) n = 1;
+	else if (K > 0 && K <= 4) n = 2;
+	else n = 3;
+	switch (n)
 	{
-	case 0: 
+	case 1:
 	{
 		printf("Мне %d лет:\n", K);
 		break;
 	}
-	case 1:
+	case 2:
 	{
 		printf("Мне %d год\n", K);
 		break;
 	}
-	case 2:
-	{
-		printf("Мне %d года\n", K);
-		break;
-	}
 	case 3:
-	{
-		printf("Мне %d года\n", K);
-		break;
-	}
-	case 4:
-	{
-		printf("Мне %d года\n", K);
-		break;
-	}
-	case 5:
-	{
-		printf("Мне %d лет\n", K);
-		break;
-	}
-	case 6:
-	{
-		printf("Мне %d лет\n", K);
-		break;
-	}
-	case 7:
-	{
-		printf("Мне %d лет\n", K);
-		break;
-	}
-	case 8:
-	{
-		printf("Мне %d лет\n", K);
-		break;
-	}
-	case 9:
-	{
-		printf("Мне %d лет\n", K);
-		break;
-	}
-	default:
 	{
 		printf("Ну просили же от 0 до 9\n");
 		break;
