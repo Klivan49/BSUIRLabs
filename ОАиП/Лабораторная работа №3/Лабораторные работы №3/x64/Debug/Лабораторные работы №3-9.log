@@ -1,0 +1,11 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: промежуточный каталог (x64\Debug\) содержит файлы, которые используются совместно с другим проектом (Лабораторные работы №3-9.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  Lab3.c
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3\Лабораторные работы №3-9\Lab3.c(11,9): warning C4013: mainMenu: нет определения; предполагается "extern" с возвратом типа "int"
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3\Лабораторные работы №3-9\Lab3.c(24,3): warning C4013: _getch: нет определения; предполагается "extern" с возвратом типа "int"
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3\Лабораторные работы №3-9\Lab3.c(48,3): warning C4013: gruzhchik: нет определения; предполагается "extern" с возвратом типа "int"
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3\Лабораторные работы №3-9\Lab3.c(51,3): warning C4013: s1mple: нет определения; предполагается "extern" с возвратом типа "int"
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3\Лабораторные работы №3-9\Lab3.c(68,35): warning C4101: y: неиспользованная локальная переменная
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3\Лабораторные работы №3-9\Lab3.c(68,32): warning C4101: x: неиспользованная локальная переменная
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3\Лабораторные работы №3-9\Lab3.c(83,1): warning C4716: gruzhchik: должна возвращать значение
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3\Лабораторные работы №3-9\Lab3.c(98,1): warning C4716: s1mple: должна возвращать значение
+  Лабораторные работы №3-9.vcxproj -> C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3\x64\Debug\Лабораторная работа №3.exe
