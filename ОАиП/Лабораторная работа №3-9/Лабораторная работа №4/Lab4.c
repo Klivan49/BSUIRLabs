@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <math.h>
 #include <locale.h>
 #include <stdlib.h>
@@ -19,10 +19,10 @@ int mainMenu()
 {
 
 	int n;
-	printf("Что вы хотите сделать?\n");
-	printf("1 -- Поиграться с массивом\n");
-	printf("2 -- Ещё раз поиграться с массивом\n");
-	printf("3 -- Выйти\n");
+	printf("Р§С‚Рѕ РІС‹ С…РѕС‚РёС‚Рµ СЃРґРµР»Р°С‚СЊ?\n");
+	printf("1 -- РџРѕРёРіСЂР°С‚СЊСЃСЏ СЃ РјР°СЃСЃРёРІРѕРј\n");
+	printf("2 -- Р•С‰С‘ СЂР°Р· РїРѕРёРіСЂР°С‚СЊСЃСЏ СЃ РјР°СЃСЃРёРІРѕРј\n");
+	printf("3 -- Р’С‹Р№С‚Рё\n");
 	n = isNatural();
 	system("cls");
 	switch (n)
@@ -37,7 +37,7 @@ int mainMenu()
 		return 0;
 	default:
 	{
-		printf("Неверный ввод\n");
+		printf("РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ\n");
 		printf("Press any key to continue...\n");
 		_getch();
 		system("cls");
@@ -48,17 +48,17 @@ int mainMenu()
 
 superMassive()
 {
-	float* massive; //Создание указателя на массив
+	float* massive; //РЎРѕР·РґР°РЅРёРµ СѓРєР°Р·Р°С‚РµР»СЏ РЅР° РјР°СЃСЃРёРІ
 	int n = 0;
 	float min, sum = 0;
 
-	printf("Введите дллину массива: ");
+	printf("Р’РІРµРґРёС‚Рµ РґР»Р»РёРЅСѓ РјР°СЃСЃРёРІР°: ");
 
 	n = isNatural();
 	
-	massive = (float*)malloc(n * sizeof(float)); //Создание динамического массива через выделение памяти
+	massive = (float*)malloc(n * sizeof(float)); //РЎРѕР·РґР°РЅРёРµ РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ РјР°СЃСЃРёРІР° С‡РµСЂРµР· РІС‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё
 
-	printf("Введите элементы массива:\n");
+	printf("Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°:\n");
 	for (int i = 0; i < n; i++)
 	{
 		printf("a[%d] = ", i);
@@ -70,8 +70,8 @@ superMassive()
 	min = massive[0];
 	for (int i = 0; i < n; i++)
 		if (massive[i] < min) min = massive[i];
-	printf("Минимальный элемент массива: %.3f\n", min);
-	printf("Нажмите любую клавишу, чтобы найти сумму элементов между крайними отрицательными\n");
+	printf("РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР°: %.3f\n", min);
+	printf("РќР°Р¶РјРёС‚Рµ Р»СЋР±СѓСЋ РєР»Р°РІРёС€Сѓ, С‡С‚РѕР±С‹ РЅР°Р№С‚Рё СЃСѓРјРјСѓ СЌР»РµРјРµРЅС‚РѕРІ РјРµР¶РґСѓ РєСЂР°Р№РЅРёРјРё РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹РјРё\n");
 	_getch();
 	float negative1, negative2;
 	for (int i = 0; i < n; i++)
@@ -83,7 +83,7 @@ superMassive()
 		else 
 		{
 			free(massive);
-			printf("В массиве нет отрицательных элементов\n");
+			printf("Р’ РјР°СЃСЃРёРІРµ РЅРµС‚ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ\n");
 			printf("Press any key to continue...\n");
 			_getch();
 			system("cls");
@@ -95,14 +95,14 @@ superMassive()
 			negative2 = i - 1;
 			break;
 		}
-	if (negative1 == negative2) printf("В массиве только 1 отрицательное число");
+	if (negative1 == negative2) printf("Р’ РјР°СЃСЃРёРІРµ С‚РѕР»СЊРєРѕ 1 РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ С‡РёСЃР»Рѕ");
 	else
 	{
 		for (int i = negative1; i < negative2-1; i++)
 		{
 			sum += massive[i];
 		}
-		printf("Сумма элементов между первым и последним отрицательным элементами: %.3f\n", sum);
+		printf("РЎСѓРјРјР° СЌР»РµРјРµРЅС‚РѕРІ РјРµР¶РґСѓ РїРµСЂРІС‹Рј Рё РїРѕСЃР»РµРґРЅРёРј РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рј СЌР»РµРјРµРЅС‚Р°РјРё: %.3f\n", sum);
 	}
 	free(massive);
 	printf("Press any key to continue...\n");
@@ -119,16 +119,16 @@ int massiveXYZ()
 		printf("a[%d] = ", i);
 		massive[i] = isDigit();
 	}
-	printf("Исходный массив:\n");
+	printf("РСЃС…РѕРґРЅС‹Р№ РјР°СЃСЃРёРІ:\n");
 	for (int i = 0; i < 20; i++) printf("%.2f ", massive[i]);
 	printf("\n");
 
 	rearrangeArray(massive);
 
-	printf("Массив после перемещения отрицательных элементов в конец:\n");
+	printf("РњР°СЃСЃРёРІ РїРѕСЃР»Рµ РїРµСЂРµРјРµС‰РµРЅРёСЏ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ РІ РєРѕРЅРµС†:\n");
 	for (int i = 0; i < 20; i++) printf("%.2f ", massive[i]);
 
-	printf("Массив в обратном порядке:\n");
+	printf("РњР°СЃСЃРёРІ РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ:\n");
 	for (int i = 19; i >= 0; i--) printf("%.2f ", massive[i]);
 	printf("\n");
 
@@ -141,21 +141,21 @@ rearrangeArray(float arr[])
 	int temp[20];
 	int j = 0;
 
-	// Копируем все неотрицательные элементы в temp
+	// РљРѕРїРёСЂСѓРµРј РІСЃРµ РЅРµРѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ СЌР»РµРјРµРЅС‚С‹ РІ temp
 	for (int i = 0; i < 20; i++) {
 		if (arr[i] >= 0) {
 			temp[j++] = arr[i];
 		}
 	}
 
-	// Копируем все отрицательные элементы в temp
+	// РљРѕРїРёСЂСѓРµРј РІСЃРµ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ СЌР»РµРјРµРЅС‚С‹ РІ temp
 	for (int i = 0; i < 20; i++) {
 		if (arr[i] < 0) {
 			temp[j++] = arr[i];
 		}
 	}
 
-	// Копируем temp обратно в arr
+	// РљРѕРїРёСЂСѓРµРј temp РѕР±СЂР°С‚РЅРѕ РІ arr
 	for (int i = 0; i < 20; i++) {
 		arr[i] = temp[i];
 	}
