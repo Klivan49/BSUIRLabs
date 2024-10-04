@@ -4,48 +4,57 @@
 #include <stdlib.h>
 #include <conio.h>
 
-int isNatural()
+int isNatural(void)
 {
-	int n = 0;
-	char input[100];
-	fgets(input, sizeof(input), stdin);
-	for (int i = 0; input[i] != '\0'; i++) if (input[i] < '0' || input[i] > '9') n++;
-	if (n > 1)
+	char* input;
+	int n = 0, nat = 0, i, counter = 0;
+	char buff[100];
+	fgets(buff, sizeof(buff), stdin);
+	n = strlen(buff) - 1;
+	input = (char*)malloc(n * sizeof(char));
+	for (i = 0; i < n; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	for (i = 0; i < n; i++) if (input[i] < '0' || input[i] > '9') counter++;
+	if (counter > 0)
 	{
-		printf("явно вы ввели что-то не то\n");
+		printf("¬ы €вно ввели что-то не то\n");
 		printf("Press any key to continue...\n");
 		_getch();
-		system("cls");
-		return NULL;
+		free(input);
+		isNatural();
 	}
 	else
 	{
-		sscanf_s(input, "%d", &n);
-		return n;
+		sscanf_s(input, "%d", &nat);
+		free(input);
+		return nat;
 	}
 }
 
-int isDigit()
+float isDigit(void)
 {
-	int n = 0, counter = 0;
-	char input[100];
-	fgets(input, sizeof(input), stdin);
-	for (int i = 0; input[i] != '\0'; i++)
+	char* input;
+	int n = 0, i, counter = 0;
+	float dig = 0;
+	char buff[100];
+	fgets(buff, sizeof(buff), stdin);
+	n = strlen(buff) - 1;
+	input = (char*)malloc(n * sizeof(char));
+	for (i = 0; i < n; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	for (i = 0; i < n; i++) if ((input[i] >= '0' && input[i] <= '9') || input[i] == ',' || input[i] == '-') counter++;
+	if (n != counter)
 	{
-		counter++;
-		if ((input[i] >= '0' && input[i] <= '9') || input[i] == '.' || input[i] == '-') n++;
-	}
-	if (n != counter - 1)
-	{
-		printf("явно вы ввели что-то не то\n");
+		printf("¬ы €вно ввели что-то не то\n");
 		printf("Press any key to continue...\n");
 		_getch();
-		system("cls");
-		return NULL;
+		free(input);
+		isDigit();
 	}
 	else
 	{
-		sscanf_s(input, "%d", &n);
-		return n;
+		sscanf_s(input, "%f", &dig);
+		free(input);
+		return dig;
 	}
 }

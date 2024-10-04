@@ -1,0 +1,23 @@
+﻿  Lab4.c
+C:\programming\BSUIRLabs\ОАиП\MyLib\Библиотека\LibForMe.h(13,19): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "Lab4.c")
+  
+C:\programming\BSUIRLabs\ОАиП\MyLib\Библиотека\LibForMe.h(41,19): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "Lab4.c")
+  
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №4\Lab4.c(15,9): warning C4013: mainMenu: нет определения; предполагается "extern" с возвратом типа "int"
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №4\Lab4.c(31,3): warning C4013: superMassive: нет определения; предполагается "extern" с возвратом типа "int"
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №4\Lab4.c(34,3): warning C4013: massiveXYZ: нет определения; предполагается "extern" с возвратом типа "int"
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №4\Lab4.c(80,18): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №4\Lab4.c(95,18): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №4\Lab4.c(92,15): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №4\Lab4.c(101,16): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №4\Lab4.c(125,2): warning C4013: rearrangeArray: нет определения; предполагается "extern" с возвратом типа "int"
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №4\Lab4.c(148,19): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №4\Lab4.c(155,19): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №4\Lab4.c(161,16): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №4\Lab4.c(163,1): warning C4716: rearrangeArray: должна возвращать значение
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №4\Lab4.c(111,1): warning C4716: superMassive: должна возвращать значение
+C:\programming\BSUIRLabs\ОАиП\MyLib\Библиотека\LibForMe.h(60,1): warning C4715: isDigit: значение возвращается не при всех путях выполнения
+C:\programming\BSUIRLabs\ОАиП\MyLib\Библиотека\LibForMe.h(32,1): warning C4715: isNatural: значение возвращается не при всех путях выполнения
+  Лабораторная работа №4.vcxproj -> C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\x64\Debug\Лабораторная работа №4.exe

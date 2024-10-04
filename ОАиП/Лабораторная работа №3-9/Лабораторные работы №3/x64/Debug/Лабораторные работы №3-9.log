@@ -1,0 +1,14 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: промежуточный каталог (x64\Debug\) содержит файлы, которые используются совместно с другим проектом (Лабораторные работы №3-9.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  Lab3.c
+C:\programming\BSUIRLabs\ОАиП\MyLib\Библиотека\LibForMe.h(13,6): warning C4013: strlen: нет определения; предполагается "extern" с возвратом типа "int"
+  (компиляция исходного файла "Lab3.c")
+  
+C:\programming\BSUIRLabs\ОАиП\MyLib\Библиотека\LibForMe.h(24,3): warning C4047: return: "int" отличается по уровням косвенного обращения от "void (__cdecl *)(void)"
+  (компиляция исходного файла "Lab3.c")
+  
+C:\programming\BSUIRLabs\ОАиП\MyLib\Библиотека\LibForMe.h(52,3): error C2440: return: невозможно преобразовать "void (__cdecl *)(void)" в "float"
+  (компиляция исходного файла "Lab3.c")
+  
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторные работы №3\Lab3.c(11,9): warning C4013: mainMenu: нет определения; предполагается "extern" с возвратом типа "int"
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторные работы №3\Lab3.c(27,3): warning C4013: gruzhchik: нет определения; предполагается "extern" с возвратом типа "int"
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторные работы №3\Lab3.c(30,3): warning C4013: s1mple: нет определения; предполагается "extern" с возвратом типа "int"
