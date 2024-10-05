@@ -1,9 +1,8 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <math.h>
 #include <locale.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include <malloc.h>
 #include <string.h>
 #include "LibForMe.h"
 
@@ -19,10 +18,10 @@ int mainMenu()
 {
 
 	int n;
-	printf("Что вы хотите сделать?\n");
-	printf("1 -- Поиграться с массивом\n");
-	printf("2 -- Ещё раз поиграться с массивом\n");
-	printf("3 -- Выйти\n");
+	printf("Р§С‚Рѕ РІС‹ С…РѕС‚РёС‚Рµ СЃРґРµР»Р°С‚СЊ?\n");
+	printf("1 -- РџРѕРёРіСЂР°С‚СЊСЃСЏ СЃ РјР°СЃСЃРёРІРѕРј\n");
+	printf("2 -- Р•С‰С‘ СЂР°Р· РїРѕРёРіСЂР°С‚СЊСЃСЏ СЃ РјР°СЃСЃРёРІРѕРј\n");
+	printf("3 -- Р’С‹Р№С‚Рё\n");
 	n = isNatural();
 	system("cls");
 	switch (n)
@@ -36,7 +35,7 @@ int mainMenu()
 		return 0;
 	default:
 	{
-		printf("Неверный ввод\n");
+		printf("РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ\n");
 		printf("Press any key to continue...\n");
 		_getch();
 		system("cls");
@@ -47,17 +46,17 @@ int mainMenu()
 
 int sqrMassive()
 {
-	int **massive; //Создание указателя на массив
+	int **massive; //РЎРѕР·РґР°РЅРёРµ СѓРєР°Р·Р°С‚РµР»СЏ РЅР° РјР°СЃСЃРёРІ
 	int lines, rows;
 	float min, sum = 0;
 
-	printf("Введите кол-во строк массива: ");
+	printf("Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ СЃС‚СЂРѕРє РјР°СЃСЃРёРІР°: ");
 	lines = isNatural();
-	printf("Введите кол-во cтолбцов массива: ");
+	printf("Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ cС‚РѕР»Р±С†РѕРІ РјР°СЃСЃРёРІР°: ");
 	rows = isNatural();
 	massive = (int **)calloc(lines, sizeof(int*));
 	for (int i = 0; i < lines; i++) massive[i] = (int*)calloc(rows, sizeof(int));
-	printf("Введите элементы массива:\n"); //Введение элементов массива
+	printf("Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°:\n"); //Р’РІРµРґРµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°
 	for (int i = 0; i < lines; i++)
 		for (int j = 0; j < rows; j++) 
 		{
