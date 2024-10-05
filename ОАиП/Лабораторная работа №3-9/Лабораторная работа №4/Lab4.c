@@ -56,9 +56,9 @@ superMassive()
 
 	n = isNatural();
 	
-	massive = (float*)malloc(n * sizeof(float)); //Создание динамического массива через выделение памяти
+	massive = (float*)malloc(n * sizeof(float)); //Динамическое выделение памяти для массива
 
-	printf("Введите элементы массива:\n");
+	printf("Введите элементы массива:\n"); //Введение элементов массива
 	for (int i = 0; i < n; i++)
 	{
 		printf("a[%d] = ", i);
@@ -136,7 +136,7 @@ int massiveXYZ()
 }
 
 
-rearrangeArray(float arr[]) 
+rearrangeArray(float arr[]) //Функция, перемещающая все отрицательные элементы в конец массива 
 {
 	int temp[20];
 	int j = 0;

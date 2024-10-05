@@ -1,0 +1,14 @@
+﻿  lab5.c
+C:\programming\BSUIRLabs\ОАиП\MyLib\Библиотека\LibForMe.h(13,19): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "lab5.c")
+  
+C:\programming\BSUIRLabs\ОАиП\MyLib\Библиотека\LibForMe.h(41,19): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "lab5.c")
+  
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №5\lab5.c(15,9): warning C4013: mainMenu: нет определения; предполагается "extern" с возвратом типа "int"
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №5\lab5.c(31,3): warning C4013: sqrMassive: нет определения; предполагается "extern" с возвратом типа "int"
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №5\lab5.c(52,8): warning C4101: min: неиспользованная локальная переменная
+C:\programming\BSUIRLabs\ОАиП\MyLib\Библиотека\LibForMe.h(32,1): warning C4715: isNatural: значение возвращается не при всех путях выполнения
+C:\programming\BSUIRLabs\ОАиП\MyLib\Библиотека\LibForMe.h(60,1): warning C4715: isDigit: значение возвращается не при всех путях выполнения
+C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №5\lab5.c(74,1): warning C4716: sqrMassive: должна возвращать значение
+  Лабораторная работа №5.vcxproj -> C:\programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\x64\Debug\Лабораторная работа №5.exe

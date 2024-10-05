@@ -42,7 +42,7 @@ float isDigit(void)
 	input = (char*)malloc(n * sizeof(char));
 	for (i = 0; i < n; i++) input[i] = buff[i];
 	memset(buff, 0, sizeof(buff));
-	for (i = 0; i < n; i++) if ((input[i] >= '0' && input[i] <= '9') || input[i] == ',' || input[i] == '-') counter++;
+	for (i = 0; i < n; i++) if ((input[i] >= '0' && input[i] <= '9') || input[i] == ',' || input[0] == '-') counter++;
 	if (n != counter)
 	{
 		printf("Вы явно ввели что-то не то\n");
