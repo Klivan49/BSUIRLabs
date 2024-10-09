@@ -4,85 +4,125 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <string.h>
+#include <stdbool.h>
 
 
-int isNatural(void)
-{
-	char* input;
-	int n = 0, nat = 0, i, counter = 0;
-	char buff[100];
-	fgets(buff, sizeof(buff), stdin);
-	n = strlen(buff) - 1;
-	input = (char*)malloc(n * sizeof(char));
-	for (i = 0; i < n; i++) input[i] = buff[i];
-	memset(buff, 0, sizeof(buff));
-	for (i = 0; i < n; i++) if (input[i] < '0' || input[i] > '9') counter++;
-	if (counter > 0)
-	{
-		printf("Вы явно ввели что-то не то\n");
-		printf("Press any key to continue...\n");
-		_getch();
-		free(input);
-		isNatural();
-	}
+int isNumber(char input[], int length)
+{ 
+
+	int n, i, counter = 0;
+	n = length;
+	for (i = 0; i < n; i++)
+		if (input[i] >= '0'
+			&& input[i] <= '9'
+			|| input[i] == '+'
+			|| input[i] == '-'
+			|| input[i] == '.'
+			|| input[i] == ',') counter++;
+	if (counter == n) return true;
 	else
 	{
-		sscanf_s(input, "%d", &nat);
-		free(input);
-		return nat;
-	}
-}
-int isInteger(void)
-{
-	char* input;
-	int n = 0, integer = 0, i, counter = 0;
-	char buff[100];
-	fgets(buff, sizeof(buff), stdin);
-	n = strlen(buff) - 1;
-	input = (char*)malloc(n * sizeof(char));
-	for (i = 0; i < n; i++) input[i] = buff[i];
-	memset(buff, 0, sizeof(buff));
-	for (i = 0; i < n; i++) if (input[i] < '0' || input[i] > '9' || input[0] == '-') counter++;
-	if (counter > 0)
-	{
-		printf("Вы явно ввели что-то не то\n");
-		printf("Press any key to continue...\n");
-		_getch();
-		free(input);
-		isInteger();
-	}
-	else
-	{
-		sscanf_s(input, "%d", &integer);
-		free(input);
-		return integer;
+			printf("Вы явно ввели не число\n");
+			printf("Press any key to continue...\n");
+			_getch();
+			system("cls");
+			return false;
 	}
 }
 
-float isDigit(void)
+int isNatural(char arr[], int length)
 {
-	char* input;
-	int n = 0, i, counter = 0;
-	float dig = 0;
-	char buff[100];
-	fgets(buff, sizeof(buff), stdin);
-	n = strlen(buff) - 1;
-	input = (char*)malloc(n * sizeof(char));
-	for (i = 0; i < n; i++) input[i] = buff[i];
-	memset(buff, 0, sizeof(buff));
-	for (i = 0; i < n; i++) if ((input[i] >= '0' && input[i] <= '9') || input[i] == ',' || input[0] == '-') counter++;
-	if (n != counter)
+	int nat, i, n, errors = 0;
+	n = length;
+	if (isNumber(arr, n) == true)
 	{
-		printf("Вы явно ввели что-то не то\n");
-		printf("Press any key to continue...\n");
-		_getch();
-		free(input);
-		isDigit();
+		for (i = 0; i < n; i++)
+			if (arr[i] == '-' || arr[i] == '+') errors++;
+
+		for (i = 0; i < n; i++)
+			if (arr[i] == ',' || arr[i] == '.') errors++;
+
+		for (i = 0; i < n; i++)
+			if ((arr[i] < '0'
+				|| arr[i] > '9')
+				&& arr[i] != " ") errors++;
+
+		if (errors != 0)
+		{
+			printf("Вы явно ввели что-то не то\n");
+			printf("Press any key to continue...\n");
+			_getch();
+			system("cls");
+			return false;
+		}
+		return true;
 	}
-	else
+	else return false;
+}
+int isInteger(char arr[], int length)
+{
+	int i, n, errors = 0;
+	n = length;
+	if (isNumber(arr, n) == true)
 	{
-		sscanf_s(input, "%f", &dig);
-		free(input);
-		return dig;
+		for (i = 0; i < n; i++)
+			if (arr[i] == ',' || arr[i] == '.') errors++;
+
+		for (i = 0; i < n; i++)
+			if (arr[i] != ' '
+				&& arr[i] != '+'
+				&& arr[i] != '-'
+				&&( arr[i] < '0'
+				|| arr[i] > '9')) errors++;
+
+		if (errors != 0)
+		{
+			printf("Вы явно ввели что-то не то\n");
+			printf("Press any key to continue...\n");
+			_getch();
+			system("cls");
+			return false;
+		}
+		return true;
 	}
+	else return false;
+}
+
+int isDigit(char arr[], int length)
+{
+	int i, n, errors = 0;
+	n = length;
+	if (isNumber(arr, n) == true)
+	{
+		for (i = 0; i < n; i++)
+			if ((arr[i] < '0'
+				|| arr[i] > '9')
+				&& arr[i] != ' '
+				&& arr[i] != '+ '
+				&& arr[i] != '-'
+				&& arr[i] != '.'
+				&& arr[i] != ',') errors++;
+		int pointCounter = 0;
+		for (i = 0; i < n; i++)
+		{
+			if (arr[i] == ',' || arr[i] == '.')
+			{
+				if (arr[i] == '.') { arr[i] == ','; }
+				pointCounter++;
+			}
+		}
+		if (pointCounter > 1) errors++;
+
+		if (errors != 0)
+		{
+			printf("Вы явно ввели что-то не то\n");
+			printf("Press any key to continue...\n");
+			_getch();
+			system("cls");
+			return false;
+		}
+		return true;
+	}
+	else return false;
+
 }

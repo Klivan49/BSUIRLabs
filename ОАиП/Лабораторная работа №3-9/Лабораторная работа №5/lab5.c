@@ -4,12 +4,16 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <stdbool.h>
 #include "LibForMe.h"
+
 
 
 int main()
 {
 	char* locale = setlocale(LC_ALL, "");
+	system("chcp 1251");
+	system("cls");
 
 	while (mainMenu());
 }
@@ -20,9 +24,9 @@ int mainMenu()
 	int n;
 	printf("Что вы хотите сделать?\n");
 	printf("1 -- Поиграться с двумерным массивом массивом\n");
-	printf("2 -- Ещё раз поиграться с массивом\n");
+	printf("2 -- Ещё раз поиграться с двумерным массивом\n");
 	printf("3 -- Выйти\n");
-	n = isNatural();
+	n = inputNatural();
 	system("cls");
 	switch (n)
 	{
@@ -51,15 +55,7 @@ int sqrMassive()
 	int lines, counter, sum = 0, diagsum = 0, ediagsum = 0, temp1, temp2;
 
 	printf("Введите разрядность матрицы: ");
-	lines = isNatural();
-	if (lines < 1)
-	{
-		printf("Такой матрицы не существует\n");
-		printf("Press any key to continue...\n");
-		_getch();
-		system("cls");
-		mainMenu();
-	}
+	lines = inputNatural();
 	massive = (int **)calloc(lines, sizeof(int*));
 	for (int i = 0; i < lines; i++) massive[i] = (int*)calloc(lines, sizeof(int));
 	printf("Введите элементы массива:\n"); //Введение элементов массива
@@ -69,7 +65,7 @@ int sqrMassive()
 		for (int j = 0; j < lines; j++)
 		{
 			printf("a[%d][%d] = ", i + 1, j + 1);
-			massive[i][j] = isInteger();
+			massive[i][j] = inputInteger();
 			sum = sum + massive[i][j];
 			if (massive[i][j] < 0) counter++;
 		}
@@ -115,7 +111,7 @@ int maxSqrMassive()
 		for (int j = 0; j < 4; j++)
 		{
 			printf("a[%d][%d] = ", i + 1, j + 1);
-			massive[i][j] = isInteger();
+			massive[i][j] = inputInteger();
 		}
 	}
 
@@ -156,4 +152,41 @@ swapRows(int matrix[4][4], int row1, int row2) {
 		matrix[row1][i] = matrix[row2][i];
 		matrix[row2][i] = temp;
 	}
+}
+
+int inputNatural()
+{
+	char* input;
+	int inputLength;
+	char buff[100];
+	int n = 0;
+
+	fgets(buff, sizeof(buff), stdin);
+	inputLength = strlen(buff) - 1;
+	input = (char*)malloc(inputLength * sizeof(char));
+	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	if (isNatural(input, inputLength) == true) {
+		sscanf_s(input, "%d", &n); free(input);  return n;
+	}
+	else mainMenu();
+}
+
+
+int inputInteger()
+{
+	char* input;
+	int inputLength;
+	char buff[100];
+	int n = 0;
+
+	fgets(buff, sizeof(buff), stdin);
+	inputLength = strlen(buff) - 1;
+	input = (char*)malloc(inputLength * sizeof(char));
+	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	if (isInteger(input, inputLength) == true) {
+		sscanf_s(input, "%d", &n); free(input); return n;
+	}
+	else mainMenu();
 }

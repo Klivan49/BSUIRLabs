@@ -4,13 +4,16 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <stdbool.h>
 #include "LibForMe.h"
+
 
 
 int main()
 {
 	char* locale = setlocale(LC_ALL, "");
-
+	system("chcp 1251");
+	system("cls");
 	while (mainMenu());
 }
 
@@ -22,8 +25,7 @@ int mainMenu()
 	printf("1 -- Поиграться с массивом\n");
 	printf("2 -- Ещё раз поиграться с массивом\n");
 	printf("3 -- Выйти\n");
-	n = isNatural();
-	system("cls");
+	n = inputNatural();
 	switch (n)
 	{
 	case 1:
@@ -48,32 +50,47 @@ int mainMenu()
 superMassive()
 {
 	float* massive; //Создание указателя на массив
-	int n = 0;
 	float min, sum = 0;
+	char* input;
+	int inputLength;
+	char buff[100];
+	int length;
 
 	printf("Введите дллину массива: ");
 
-	n = isNatural();
+	length = inputNatural();
 	
-	massive = (float*)malloc(n * sizeof(float)); //Динамическое выделение памяти для массива
+	massive = (float*)malloc(length * sizeof(float)); //Динамическое выделение памяти для массива
 
 	printf("Введите элементы массива:\n"); //Введение элементов массива
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < length; i++)
 	{
 		printf("a[%d] = ", i);
-		massive[i] = isDigit();
+		fgets(buff, sizeof(buff), stdin);
+		inputLength = strlen(buff) - 1;
+		input = (char*)malloc(inputLength * sizeof(char));
+		for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+		memset(buff, 0, sizeof(buff));
+		if (isDigit(input, inputLength) == true)
+		{
+			for (int i = 0; i < inputLength; i++) if (input[i] == '.') { input[i] = ','; }
+			sscanf_s(input, "%f", &massive[i]);
+		}
+		else mainMenu();
+		free(input);
 	}
-	for (int i = 0; i < n; i++) printf("%.2f ", massive[i]);
+
+	for (int i = 0; i < length; i++) printf("%.2f ", massive[i]);
 	printf("\n");
 
 	min = massive[0];
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < length; i++)
 		if (massive[i] < min) min = massive[i];
 	printf("Минимальный элемент массива: %.3f\n", min);
 	printf("Нажмите любую клавишу, чтобы найти сумму элементов между крайними отрицательными\n");
 	_getch();
-	float negative1, negative2;
-	for (int i = 0; i < n; i++)
+	float negative1 = 0, negative2 = 0;
+	for (int i = 0; i < length; i++)
 		if (massive[i] < 0)
 		{
 			negative1 = i + 1;
@@ -88,7 +105,7 @@ superMassive()
 			system("cls");
 			mainMenu();
 		}
-	for (int i = negative1; i , n; i++)
+	for (int i = negative1; i < length; i++)
 		if (massive[i] < 0)
 		{
 			negative2 = i - 1;
@@ -112,11 +129,28 @@ superMassive()
 
 int massiveXYZ() 
 {
+	float min, sum = 0;
+	char* input;
+	int inputLength = 20;
+	char buff[100];
 	float massive[20];
+	printf("Введите элеметны массива: \n");
 	for (int i = 0; i < 20; i++)
 	{
 		printf("a[%d] = ", i);
-		massive[i] = isDigit();
+		fgets(buff, sizeof(buff), stdin);
+		inputLength = strlen(buff) - 1;
+		input = (char*)malloc(inputLength * sizeof(char));
+		for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+		memset(buff, 0, sizeof(buff));
+		if (isDigit(input, inputLength) == true)
+		{
+			for (int i = 0; i < inputLength; i++) if (input[i] == '.') { input[i] = ','; }
+			sscanf_s(input, "%f", &massive[i]);
+
+		}
+		else mainMenu();
+		free(input);
 	}
 	printf("Исходный массив:\n");
 	for (int i = 0; i < 20; i++) printf("%.2f ", massive[i]);
@@ -158,4 +192,41 @@ rearrangeArray(float arr[]) //Функция, перемещающая все о
 	for (int i = 0; i < 20; i++) {
 		arr[i] = temp[i];
 	}
+}
+
+int inputNatural()
+{
+	char* input;
+	int inputLength;
+	char buff[100];
+	int n = 0;
+
+	fgets(buff, sizeof(buff), stdin);
+	inputLength = strlen(buff) - 1;
+	input = (char*)malloc(inputLength * sizeof(char));
+	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	if (isNatural(input, inputLength) == true) {
+		sscanf_s(input, "%d", &n); free(input);  return n;
+	}
+	else mainMenu();
+}
+
+
+int inputInteger()
+{
+	char* input;
+	int inputLength;
+	char buff[100];
+	int n = 0;
+
+	fgets(buff, sizeof(buff), stdin);
+	inputLength = strlen(buff) - 1;
+	input = (char*)malloc(inputLength * sizeof(char));
+	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	if (isInteger(input, inputLength) == true) {
+		sscanf_s(input, "%d", &n); free(input); return n;
+	}
+	else mainMenu();
 }
