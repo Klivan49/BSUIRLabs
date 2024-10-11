@@ -36,6 +36,7 @@ int mainMenu()
 		break;
 	case 3:
 		return 0;
+		break;
 	default:
 	{
 		printf("Неверный ввод\n");
@@ -61,6 +62,7 @@ superMassive()
 	length = inputNatural();
 	
 	massive = (float*)malloc(length * sizeof(float)); //Динамическое выделение памяти для массива
+
 
 	printf("Введите элементы массива:\n"); //Введение элементов массива
 	for (int i = 0; i < length; i++)

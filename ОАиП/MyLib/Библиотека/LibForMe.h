@@ -43,7 +43,8 @@ int isNatural(char arr[], int length)
 			if (arr[i] == ',' || arr[i] == '.') errors++;
 
 		for (i = 0; i < n; i++)
-			if ((arr[i] < '0'
+			if ((arr[0] == '0'
+				|| arr[i] < '0'
 				|| arr[i] > '9')
 				&& arr[i] != " ") errors++;
 
@@ -59,6 +60,7 @@ int isNatural(char arr[], int length)
 	}
 	else return false;
 }
+
 int isInteger(char arr[], int length)
 {
 	int i, n, errors = 0;
@@ -124,5 +126,4 @@ int isDigit(char arr[], int length)
 		return true;
 	}
 	else return false;
-
 }
