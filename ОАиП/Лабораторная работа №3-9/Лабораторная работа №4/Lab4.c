@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "LibForMe.h"
-
+#include <time.h>
 
 
 int main()
@@ -22,8 +22,8 @@ int mainMenu()
 
 	int n;
 	printf("Что вы хотите сделать?\n");
-	printf("1 -- Поиграться с массивом\n");
-	printf("2 -- Ещё раз поиграться с массивом\n");
+	printf("1 -- Что-то узнать о массиве\n");
+	printf("2 -- Поиграться с его строками\n");
 	printf("3 -- Выйти\n");
 	n = inputNatural();
 	switch (n)
@@ -57,7 +57,7 @@ superMassive()
 	char buff[100];
 	int length;
 
-	printf("Введите дллину массива: ");
+	printf("Введите длину массива: ");
 
 	length = inputNatural();
 	
@@ -73,10 +73,15 @@ superMassive()
 		input = (char*)malloc(inputLength * sizeof(char));
 		for (int i = 0; i < inputLength; i++) input[i] = buff[i];
 		memset(buff, 0, sizeof(buff));
+
 		if (isDigit(input, inputLength) == true)
 		{
-			for (int i = 0; i < inputLength; i++) if (input[i] == '.') { input[i] = ','; }
-			sscanf_s(input, "%f", &massive[i]);
+			for (int i = 0; i < inputLength; i++)
+				if (input[i] == '.') { input[i] = ','; }
+			float buf;
+			sscanf_s(input, "%f", &buf);
+			massive[i] = buf;
+			buf = 0;
 		}
 		else mainMenu();
 		free(input);
@@ -95,10 +100,10 @@ superMassive()
 	for (int i = 0; i < length; i++)
 		if (massive[i] < 0)
 		{
-			negative1 = i + 1;
+			negative1 = i+1;
 			break;
 		}
-		else 
+		if (negative1 == 0)
 		{
 			free(massive);
 			printf("В массиве нет отрицательных элементов\n");
@@ -110,17 +115,17 @@ superMassive()
 	for (int i = negative1; i < length; i++)
 		if (massive[i] < 0)
 		{
-			negative2 = i - 1;
+			negative2 = i;
 			break;
 		}
-	if (negative1 == negative2) printf("В массиве только 1 отрицательное число");
+	if (negative2 == 0) printf("В массиве только 1 отрицательное число\n");
 	else
 	{
-		for (int i = negative1; i < negative2-1; i++)
+		for (int i = negative1; i < negative2; i++)
 		{
 			sum += massive[i];
 		}
-		printf("Сумма элементов между первым и последним отрицательным элементами: %.3f\n", sum);
+		printf("Сумма элементов между первыми двумя отрицательным элементами: %.3f\n", sum);
 	}
 	free(massive);
 	printf("Press any key to continue...\n");
@@ -132,41 +137,28 @@ superMassive()
 int massiveXYZ() 
 {
 	float min, sum = 0;
-	char* input;
-	int inputLength = 20;
-	char buff[100];
 	float massive[20];
-	printf("Введите элеметны массива: \n");
+	srand(time(NULL));
 	for (int i = 0; i < 20; i++)
 	{
-		printf("a[%d] = ", i);
-		fgets(buff, sizeof(buff), stdin);
-		inputLength = strlen(buff) - 1;
-		input = (char*)malloc(inputLength * sizeof(char));
-		for (int i = 0; i < inputLength; i++) input[i] = buff[i];
-		memset(buff, 0, sizeof(buff));
-		if (isDigit(input, inputLength) == true)
-		{
-			for (int i = 0; i < inputLength; i++) if (input[i] == '.') { input[i] = ','; }
-			sscanf_s(input, "%f", &massive[i]);
-
-		}
-		else mainMenu();
-		free(input);
+		massive[i] = -10 + rand() % 20;
 	}
+
 	printf("Исходный массив:\n");
 	for (int i = 0; i < 20; i++) printf("%.2f ", massive[i]);
-	printf("\n");
 
 	rearrangeArray(massive);
 
-	printf("Массив после перемещения отрицательных элементов в конец:\n");
+	printf("\nМассив после перемещения отрицательных элементов в конец:\n");
 	for (int i = 0; i < 20; i++) printf("%.2f ", massive[i]);
 
-	printf("Массив в обратном порядке:\n");
+	printf("\nМассив в обратном порядке:\n");
 	for (int i = 19; i >= 0; i--) printf("%.2f ", massive[i]);
 	printf("\n");
 
+	printf("Press any key to continue...\n");
+	_getch();
+	system("cls");
 	return 0;
 }
 

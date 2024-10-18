@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Лабораторная р
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Лабораторная работа №3", "Лабораторная работа №3\Лабораторные работы №3-9.vcxproj", "{803DB6BF-C452-47A5-B958-DDC448760668}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Лабораторная работа №7", "Лабораторная работа №7\Лабораторная работа №7.vcxproj", "{EA0F6900-AD3D-47BB-A73C-B54E2AE94A09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -69,6 +71,18 @@ Global
 		{803DB6BF-C452-47A5-B958-DDC448760668}.Release|x64.Build.0 = Release|x64
 		{803DB6BF-C452-47A5-B958-DDC448760668}.Release|x86.ActiveCfg = Release|Win32
 		{803DB6BF-C452-47A5-B958-DDC448760668}.Release|x86.Build.0 = Release|Win32
+		{EA0F6900-AD3D-47BB-A73C-B54E2AE94A09}.Debug|ARM64.ActiveCfg = Debug|x64
+		{EA0F6900-AD3D-47BB-A73C-B54E2AE94A09}.Debug|ARM64.Build.0 = Debug|x64
+		{EA0F6900-AD3D-47BB-A73C-B54E2AE94A09}.Debug|x64.ActiveCfg = Debug|x64
+		{EA0F6900-AD3D-47BB-A73C-B54E2AE94A09}.Debug|x64.Build.0 = Debug|x64
+		{EA0F6900-AD3D-47BB-A73C-B54E2AE94A09}.Debug|x86.ActiveCfg = Debug|Win32
+		{EA0F6900-AD3D-47BB-A73C-B54E2AE94A09}.Debug|x86.Build.0 = Debug|Win32
+		{EA0F6900-AD3D-47BB-A73C-B54E2AE94A09}.Release|ARM64.ActiveCfg = Release|x64
+		{EA0F6900-AD3D-47BB-A73C-B54E2AE94A09}.Release|ARM64.Build.0 = Release|x64
+		{EA0F6900-AD3D-47BB-A73C-B54E2AE94A09}.Release|x64.ActiveCfg = Release|x64
+		{EA0F6900-AD3D-47BB-A73C-B54E2AE94A09}.Release|x64.Build.0 = Release|x64
+		{EA0F6900-AD3D-47BB-A73C-B54E2AE94A09}.Release|x86.ActiveCfg = Release|Win32
+		{EA0F6900-AD3D-47BB-A73C-B54E2AE94A09}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
