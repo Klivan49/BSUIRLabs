@@ -8,7 +8,7 @@
 
 
 int isNumber(char input[], int length)
-{ 
+{
 
 	int n, i, counter = 0;
 	n = length;
@@ -22,11 +22,11 @@ int isNumber(char input[], int length)
 	if (counter == n) return true;
 	else
 	{
-			printf("Вы явно ввели не число\n");
-			printf("Press any key to continue...\n");
-			_getch();
-			system("cls");
-			return false;
+		printf("Вы явно ввели не число\n");
+		printf("Press any key to continue...\n");
+		_getch();
+		system("cls");
+		return false;
 	}
 }
 
@@ -46,7 +46,7 @@ int isNatural(char arr[], int length)
 			if ((arr[0] == '0'
 				|| arr[i] < '0'
 				|| arr[i] > '9')
-				&& arr[i] != " ") errors++;
+				&& arr[i] != ' ') errors++;
 
 		if (errors != 0)
 		{
@@ -74,8 +74,8 @@ int isInteger(char arr[], int length)
 			if (arr[i] != ' '
 				&& arr[i] != '+'
 				&& arr[i] != '-'
-				&&( arr[i] < '0'
-				|| arr[i] > '9')) errors++;
+				&& (arr[i] < '0'
+					|| arr[i] > '9')) errors++;
 
 		if (errors != 0)
 		{
@@ -109,8 +109,11 @@ int isDigit(char arr[], int length)
 		{
 			if (arr[i] == ',' || arr[i] == '.')
 			{
-				if (arr[i] == '.') { arr[i] == ','; }
-				pointCounter++;
+				if (arr[i] == '.')
+				{
+					arr[i] = ',';
+					pointCounter++;
+				}
 			}
 		}
 		if (pointCounter > 1) errors++;

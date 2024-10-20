@@ -12,7 +12,6 @@
 
 int main()
 {
-
 	char* locale = setlocale(LC_ALL, "");
 	system("chcp 1251");
 	system("cls");
@@ -184,8 +183,11 @@ int decryptor()
 	printf("Исходное сообщение: ");
 	puts(massive);
 	decryptMessage(massive);
-	printf("\nДешифрованное сообщение: ");
+	printf("Дешифрованное сообщение: ");
 	puts(massive);
+	printf("Press any key to continue...");
+	_getch();
+	system("cls");
 }
 	
 reverseWord(char* start, char* end) {
@@ -199,27 +201,23 @@ reverseWord(char* start, char* end) {
 	}
 }
 
-decryptMessage(char* message) {
-	char* word_start = message;
-	char* temp = message;
+decryptMessage(char* massive) {
+	char* wordStart = massive;
+	char* wordEnd = massive;
 
-	while (*temp) {
-		temp++;
-		if (*temp == ' ' 
-			|| *temp == '\0' 
-			|| *temp == ',' 
-			|| *temp == '?' 
-			|| *temp == '!' 
-			|| *temp == '.') 
+	while (*wordEnd) {
+		wordEnd++;
+		if (*wordEnd == ' ' 
+			|| *wordEnd == '\0' 
+			|| *wordEnd == ',' 
+			|| *wordEnd == '?' 
+			|| *wordEnd == '!' 
+			|| *wordEnd == '.') 
 		{
-			reverseWord(word_start, temp - 1);
-			word_start = temp + 1;
+			reverseWord(wordStart, wordEnd - 1);
+			wordStart = wordEnd + 1;
 		}
 	}
-	message = temp;
-	printf("Press any key to continue...");
-	_getch();
-	system("cls");
 }
 
 

@@ -86,7 +86,14 @@ s1mple1()
 	int K, n = 0, buf;
 	printf("Введите своё число(Натуральное): \n");
 	K = inputNatural();
-	if (K == 1) printf("Простая ли эта единица...?\n");
+	if (K == 1)
+	{
+		printf("Простая ли эта единица...?\n");
+		printf("Press any key to continue...\n");
+		_getch();
+		system("cls");
+		mainMenu();
+	}
 	for (int i = 1; i <= K; i++)
 		if (K % i == 0) n++;
 	if (n == 2) printf("Ваше число простое!\n");
