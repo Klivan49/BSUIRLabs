@@ -8,6 +8,76 @@
 #include "LibForMe.h"
 #include <time.h>
 
+int inputNatural()
+{
+	char* input;
+	int inputLength;
+	char buff[100];
+	int n = 0;
+
+	fgets(buff, sizeof(buff), stdin);
+	inputLength = strlen(buff) - 1;
+	input = (char*)malloc(inputLength * sizeof(char));
+	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	if (isNatural(input, inputLength) == true)
+	{
+		sscanf_s(input, "%d", &n);
+		free(input);
+		return n;
+	}
+	else
+	{
+		free(input);
+		mainMenu();
+		return -1;
+	}
+}
+
+int inputInteger()
+{
+	char* input;
+	int inputLength;
+	char buff[100];
+	int n = 0;
+
+	fgets(buff, sizeof(buff), stdin);
+	inputLength = strlen(buff) - 1;
+	input = (char*)malloc(inputLength * sizeof(char));
+	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	if (isInteger(input, inputLength) == true) {
+		sscanf_s(input, "%d", &n); free(input); return n;
+	}
+	else
+	{
+		free(input);
+		mainMenu();
+		return -1;
+	}
+}
+
+float inputDigit()
+{
+	char* input;
+	int inputLength;
+	char buff[100];
+	float temp = 0;
+
+	fgets(buff, sizeof(buff), stdin);
+	inputLength = strlen(buff) - 1;
+	input = (char*)malloc(inputLength * sizeof(char));
+	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	if (isDigit(input, inputLength) == true)
+	{
+		for (int i = 0; i < inputLength; i++) if (input[i] == '.') { input[i] = ','; }
+		sscanf_s(input, "%f", &temp);
+		free(input);
+		return temp;
+	}
+	else { free(input); mainMenu(); return -1; }
+}
 
 int main()
 {
@@ -68,23 +138,7 @@ superMassive()
 	for (int i = 0; i < length; i++)
 	{
 		printf("a[%d] = ", i);
-		fgets(buff, sizeof(buff), stdin);
-		inputLength = strlen(buff) - 1;
-		input = (char*)malloc(inputLength * sizeof(char));
-		for (int i = 0; i < inputLength; i++) input[i] = buff[i];
-		memset(buff, 0, sizeof(buff));
-
-		if (isDigit(input, inputLength) == true)
-		{
-			for (int i = 0; i < inputLength; i++)
-				if (input[i] == '.') { input[i] = ','; }
-			float buf;
-			sscanf_s(input, "%f", &buf);
-			massive[i] = buf;
-			buf = 0;
-		}
-		else mainMenu();
-		free(input);
+		massive[i] = inputDigit();
 	}
 
 	for (int i = 0; i < length; i++) printf("%.2f ", massive[i]);
@@ -133,8 +187,7 @@ superMassive()
 	system("cls");
 }
 
-
-int massiveXYZ() 
+massiveXYZ() 
 {
 	float min, sum = 0;
 	float massive[20];
@@ -162,7 +215,6 @@ int massiveXYZ()
 	return 0;
 }
 
-
 rearrangeArray(float arr[]) //Функция, перемещающая все отрицательные элементы в конец массива 
 {
 	int temp[20];
@@ -186,41 +238,4 @@ rearrangeArray(float arr[]) //Функция, перемещающая все о
 	for (int i = 0; i < 20; i++) {
 		arr[i] = temp[i];
 	}
-}
-
-int inputNatural()
-{
-	char* input;
-	int inputLength;
-	char buff[100];
-	int n = 0;
-
-	fgets(buff, sizeof(buff), stdin);
-	inputLength = strlen(buff) - 1;
-	input = (char*)malloc(inputLength * sizeof(char));
-	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
-	memset(buff, 0, sizeof(buff));
-	if (isNatural(input, inputLength) == true) {
-		sscanf_s(input, "%d", &n); free(input);  return n;
-	}
-	else mainMenu();
-}
-
-
-int inputInteger()
-{
-	char* input;
-	int inputLength;
-	char buff[100];
-	int n = 0;
-
-	fgets(buff, sizeof(buff), stdin);
-	inputLength = strlen(buff) - 1;
-	input = (char*)malloc(inputLength * sizeof(char));
-	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
-	memset(buff, 0, sizeof(buff));
-	if (isInteger(input, inputLength) == true) {
-		sscanf_s(input, "%d", &n); free(input); return n;
-	}
-	else mainMenu();
 }

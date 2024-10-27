@@ -6,6 +6,76 @@
 #include <string.h>
 #include "LibForMe.h"
 
+int inputNatural()
+{
+	char* input;
+	int inputLength;
+	char buff[100];
+	int n = 0;
+
+	fgets(buff, sizeof(buff), stdin);
+	inputLength = strlen(buff) - 1;
+	input = (char*)malloc(inputLength * sizeof(char));
+	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	if (isNatural(input, inputLength) == true)
+	{
+		sscanf_s(input, "%d", &n);
+		free(input);
+		return n;
+	}
+	else
+	{
+		free(input);
+		mainMenu();
+		return -1;
+	}
+}
+
+int inputInteger()
+{
+	char* input;
+	int inputLength;
+	char buff[100];
+	int n = 0;
+
+	fgets(buff, sizeof(buff), stdin);
+	inputLength = strlen(buff) - 1;
+	input = (char*)malloc(inputLength * sizeof(char));
+	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	if (isInteger(input, inputLength) == true) {
+		sscanf_s(input, "%d", &n); free(input); return n;
+	}
+	else
+	{
+		free(input);
+		mainMenu();
+		return -1;
+	}
+}
+
+float inputDigit()
+{
+	char* input;
+	int inputLength;
+	char buff[100];
+	float temp = 0;
+
+	fgets(buff, sizeof(buff), stdin);
+	inputLength = strlen(buff) - 1;
+	input = (char*)malloc(inputLength * sizeof(char));
+	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	if (isDigit(input, inputLength) == true)
+	{
+		for (int i = 0; i < inputLength; i++) if (input[i] == '.') { input[i] = ','; }
+		sscanf_s(input, "%f", &temp);
+		free(input);
+		return temp;
+	}
+	else { free(input); mainMenu(); return -1; }
+}
 
 int main()
 {
@@ -65,21 +135,7 @@ superMassive()
 	for (int i = 0; i < length; i++)
 	{
 		printf("a[%d] = ", i+1);
-		
-
-		fgets(buff, sizeof(buff), stdin);
-		inputLength = strlen(buff) - 1;
-		input = (char*)malloc(inputLength * sizeof(char));
-		for (int i = 0; i < inputLength; i++) input[i] = buff[i];
-		memset(buff, 0, sizeof(buff));
-		if (isDigit(input, inputLength) == true)
-		{
-			for (int i = 0; i < inputLength; i++) if (input[i] == '.') { input[i] = ','; }
-			sscanf_s(input, "%f", &massive[i]);
-			
-		}
-		else mainMenu();
-		free(input);
+		massive[i] = inputDigit();
 	}
 	for (int i = 0; i < length; i++) printf("%.2f ", massive[i]);
 	printf("\n");
@@ -110,7 +166,6 @@ superMassive()
 	return 0;
 }
 
-
 int massiveXYZ()
 {
 	int** massive; //Создание указателя на массив
@@ -120,7 +175,7 @@ int massiveXYZ()
 	lines = inputNatural();
 	printf("Введите кол-во строк столбцов: ");
 	rows = inputNatural();
-	
+
 	massive = (int**)calloc(lines, sizeof(int*));
 	for (int i = 0; i < lines; i++) massive[i] = (int*)calloc(rows, sizeof(int));
 	printf("Введите элементы массива:\n"); //Введение элементов массива
@@ -137,42 +192,4 @@ int massiveXYZ()
 		for (int j = 0; j < lines; j++) printf("%d ", massive[i][j]);
 		printf("\n");
 	}
-}
-
-
-int inputNatural()
-{
-	char* input;
-	int inputLength;
-	char buff[100];
-	int n = 0;
-
-	fgets(buff, sizeof(buff), stdin);
-	inputLength = strlen(buff) - 1;
-	input = (char*)malloc(inputLength * sizeof(char));
-	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
-	memset(buff, 0, sizeof(buff));
-	if (isNatural(input, inputLength) == true) {
-		sscanf_s(input, "%d", &n); free(input);  return n;
-	}
-	else mainMenu();
-}
-
-
-int inputInteger()
-{
-	char* input;
-	int inputLength;
-	char buff[100];
-	int n = 0;
-
-	fgets(buff, sizeof(buff), stdin);
-	inputLength = strlen(buff) - 1;
-	input = (char*)malloc(inputLength * sizeof(char));
-	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
-	memset(buff, 0, sizeof(buff));
-	if (isInteger(input, inputLength) == true) {
-		sscanf_s(input, "%d", &n); free(input); return n;
-	}
-	else mainMenu();
 }

@@ -7,7 +7,41 @@
 #include <stdbool.h>
 #include "LibForMe.h"
 
+int inputNatural()
+{
+	char* input;
+	int inputLength;
+	char buff[100];
+	int n = 0;
 
+	fgets(buff, sizeof(buff), stdin);
+	inputLength = strlen(buff) - 1;
+	input = (char*)malloc(inputLength * sizeof(char));
+	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	if (isNatural(input, inputLength) == true) {
+		sscanf_s(input, "%d", &n); free(input);  return n;
+	}
+	else mainMenu();
+}
+
+int inputInteger()
+{
+	char* input;
+	int inputLength;
+	char buff[100];
+	int n = 0;
+
+	fgets(buff, sizeof(buff), stdin);
+	inputLength = strlen(buff) - 1;
+	input = (char*)malloc(inputLength * sizeof(char));
+	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	if (isInteger(input, inputLength) == true) {
+		sscanf_s(input, "%d", &n); free(input); return n;
+	}
+	else mainMenu();
+}
 
 int main()
 {
@@ -152,41 +186,4 @@ swapRows(int matrix[4][4], int row1, int row2) {
 		matrix[row1][i] = matrix[row2][i];
 		matrix[row2][i] = temp;
 	}
-}
-
-int inputNatural()
-{
-	char* input;
-	int inputLength;
-	char buff[100];
-	int n = 0;
-
-	fgets(buff, sizeof(buff), stdin);
-	inputLength = strlen(buff) - 1;
-	input = (char*)malloc(inputLength * sizeof(char));
-	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
-	memset(buff, 0, sizeof(buff));
-	if (isNatural(input, inputLength) == true) {
-		sscanf_s(input, "%d", &n); free(input);  return n;
-	}
-	else mainMenu();
-}
-
-
-int inputInteger()
-{
-	char* input;
-	int inputLength;
-	char buff[100];
-	int n = 0;
-
-	fgets(buff, sizeof(buff), stdin);
-	inputLength = strlen(buff) - 1;
-	input = (char*)malloc(inputLength * sizeof(char));
-	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
-	memset(buff, 0, sizeof(buff));
-	if (isInteger(input, inputLength) == true) {
-		sscanf_s(input, "%d", &n); free(input); return n;
-	}
-	else mainMenu();
 }

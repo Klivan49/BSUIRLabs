@@ -6,7 +6,6 @@
 #include <string.h>
 #include <stdbool.h>
 
-
 int isNumber(char input[], int length)
 {
 
