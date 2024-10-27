@@ -1,22 +1,13 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <math.h>
 #include <locale.h>
 #include <stdlib.h>
-#include <conio.h>
+#include <stdint.h>
+#include <string.h>
+#include <time.h>
 #include "LibForMe.h"
-
-struct kino
-{
-	char name[100];
-	int session;
-	float cost;
-	int numbOfVisitors;
-}*data;
-
-struct kino temp;
-
-FILE* f;
-
-int numberOfFilms;
+#include <stdbool.h>
 
 int inputNatural()
 {
@@ -83,38 +74,60 @@ float inputDigit()
 	{
 		for (int i = 0; i < inputLength; i++) if (input[i] == '.') { input[i] = ','; }
 		sscanf_s(input, "%f", &temp);
-		free(input);
-		return temp;
+		if (temp <= 0)
+		{
+			printf("Билет не может столько стоить!\n");
+			printf("Press any key to continue...");
+			free(input);
+			_getch();
+			system("cls");
+			cinema();
+			return -1;
+		}
+		else
+		{
+			free(input);
+			return temp;
+		}
 	}
 	else { free(input); mainMenu(); return -1; }
 }
 
+struct kino
+{
+	char name[30];
+	int session;
+	float cost;
+	int numbOfVisitors;
+}*data;
+
+struct kino temp;
+
+int numberOfFilms = 0;
+
 int main()
 {
 	char* locale = setlocale(LC_ALL, "");
-	system("cls");
 	system("chcp 1251");
+	system("cls");
 	while (mainMenu());
 }
 
-mainMenu()
+int mainMenu()
 {
 	int n;
 	system("cls");
 	printf("Выберите задачу:\n");
-	printf("1 -- \"Знакомство с файлами\"\n");
-	printf("2 -- \"Вкаченный кинотеатр\"\n");
-	printf("3 -- Выход\n");
+	printf("1 -- \"Кинотеатр\"\n");
+	printf("2 -- Выход\n");
 	n = inputNatural();
 	switch (n)
 	{
 	case 1:
-		break;
-	case 2:
 		system("cls");
 		while (cinema());
 		break;
-	case 3:
+	case 2:
 		return 0;
 	default:
 	{
@@ -132,7 +145,7 @@ cinema()
 	printf("Что вы хотите сделать?\n1 -- Ввести массив структур\n2 -- Отсортировать массив структур\n3 -- Произвести поиск в массиве структур по заданному параметру\n4 -- Изменить заданную структуру\n5 -- Удалить структуру из массива\n6 -- Вывести на экран массив структур\n7 -- Выйти\n");
 	int n = inputNatural();
 	system("cls");
-	if (sizeof(data) == 0 && n > 1 && n < 8)
+	if (numberOfFilms == 0 && n > 1 && n < 8)
 	{
 		printf("В базе нет информации ни об одном фильме(\n");
 		printf("Press any key to continue...\n");
@@ -196,19 +209,13 @@ cinema()
 
 inputStruct()
 {
-	fopen_s(&f, "numberOfFilms.bin", "wb");
-	if (f == 0) { printf("Ошибка создания файла(\n"); return 0; }
 	printf("Введите кол-во фильмов\n");
 	numberOfFilms = inputInteger();
-	fwrite(&numberOfFilms, sizeof(int), 1, f);
-	fclose(f);
-	fopen_s(&f, "kino.bin", "wb");
-	if (f == 0) { printf("Ошибка создания файла(\n"); return 0; }
-	data = malloc(numberOfFilms * (2 * sizeof(int) + sizeof(float) + 100 * sizeof(char)));
+	data = malloc(numberOfFilms * (2 * sizeof(int) + sizeof(float) + 30 * sizeof(char)));
 	for (int i = 0; i < numberOfFilms; i++)
 	{
 		printf("Введите название фильма №%d: ", i + 1);
-		fgets(data[i].name, 100, stdin);
+		fgets(data[i].name, 30, stdin);
 
 		printf("Введите номер сеанса: ");
 		data[i].session = inputNatural();
@@ -220,10 +227,6 @@ inputStruct()
 		data[i].numbOfVisitors = inputNatural();
 		printf("\n");
 	}
-	fwrite(data, sizeof(data), numberOfFilms, f);
-	fclose(f);
-	free(data);
-	printf("Список успешно создан!\n");
 }
 
 sorting()
@@ -234,13 +237,11 @@ sorting()
 	{
 	case 1:
 	{
-		fopen_s(&f, "kino.bin", "r+b");
+
 		for (int i = 0; i < numberOfFilms - 1; i++)
 			for (int j = i + 1; j < numberOfFilms; j++)
 				if (strcmp(data[i].name, data[j].name) > 0)
 				{
-					fread(&data[i], sizeof(data), numberOfFilms, f);
-					fread(&data[j], sizeof(data), numberOfFilms, f);
 					temp = data[i];
 					data[i] = data[j];
 					data[j] = temp;
@@ -253,8 +254,6 @@ sorting()
 			for (int j = i + 1; j < numberOfFilms; j++)
 				if (data[i].session > data[j].session)
 				{
-					fread(&data[i], sizeof(data), numberOfFilms, f);
-					fread(&data[j], sizeof(data), numberOfFilms, f);
 					temp = data[i];
 					data[i] = data[j];
 					data[j] = temp;
@@ -268,8 +267,6 @@ sorting()
 			for (int j = i + 1; j < numberOfFilms; j++)
 				if (data[i].cost > data[j].cost)
 				{
-					fread(&data[i], sizeof(data), numberOfFilms, f);
-					fread(&data[j], sizeof(data), numberOfFilms, f);
 					temp = data[i];
 					data[i] = data[j];
 					data[j] = temp;
@@ -283,8 +280,6 @@ sorting()
 			for (int j = i + 1; j < numberOfFilms; j++)
 				if (data[i].numbOfVisitors > data[j].numbOfVisitors)
 				{
-					fread(&data[i], sizeof(data), numberOfFilms, f);
-					fread(&data[j], sizeof(data), numberOfFilms, f);
 					temp = data[i];
 					data[i] = data[j];
 					data[j] = temp;
@@ -315,10 +310,10 @@ finder()
 	{
 	case 1:
 	{
-		char input[100];
+		char input[30];
 		int counter = 0;
 		printf("Введите название(Или его первую часть): ");
-		fgets(input, 100, stdin);
+		fgets(input, 30, stdin);
 		for (int i = 0; i < numberOfFilms; i++)
 			if (strcmp(data[i].name, input) == 0)
 			{
@@ -405,7 +400,7 @@ remaking(struct kino* data)
 	{
 		printf("Старое значение: %s\n", data[num].name);
 		printf("Введите новое значение: ");
-		fgets(data[num].name, 100, stdin);
+		fgets(data[num].name, 30, stdin);
 		printf("Новое значение: %s\n", data[num].name);
 		break;
 	}
@@ -463,15 +458,9 @@ deleting()
 
 outputStruct(int n, int num)
 {
-	fopen_s(&f, "numberOfFilms.bin", "rb");
-	fread(&numberOfFilms, sizeof(int), 1, f);
-	fclose(f);
-	fopen_s(&f, "kino.bin", "rb");
-	fread(data, sizeof(data), numberOfFilms, f);
-	if (f == 0) { printf("Ошибка открытия файла(\n"); return 0; }
 	if (n == 0)
 	{
-		for(int i = 0; i < numberOfFilms; i++)
+		for (int i = 0; i < numberOfFilms; i++)
 		{
 			printf("Название фильма: %s", data[i].name);
 			printf("Номер сеанса: %d\n", data[i].session);
@@ -488,6 +477,4 @@ outputStruct(int n, int num)
 		printf("Количество зрителей: %d\n", data[num].numbOfVisitors);
 		printf("\n");
 	}
-	fclose(f);
 }
-
