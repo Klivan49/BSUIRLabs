@@ -312,7 +312,7 @@ finder()
 	{
 		char input[30];
 		int counter = 0;
-		printf("Введите название(Или его первую часть): ");
+		printf("Введите название: ");
 		fgets(input, 30, stdin);
 		for (int i = 0; i < numberOfFilms; i++)
 			if (strcmp(data[i].name, input) == 0)
@@ -388,7 +388,7 @@ remaking(struct kino* data)
 	for (int i = 0; i < numberOfFilms; i++)
 		printf("%d -- %s", i + 1, data[i].name);
 	int num = inputNatural() - 1;
-	if (num > numberOfFilms) {
+	if (num >= numberOfFilms) {
 		printf("Такого фильма нет"); 
 		return 0; 
 	}
@@ -409,7 +409,7 @@ remaking(struct kino* data)
 		printf("Старое значение: %d\n", data[num].session);
 		printf("Введите новое значение: ");
 		data[num].session = inputNatural();
-		printf("Новое значение: %s\n", data[num].session);
+		printf("Новое значение: %d\n", data[num].session);
 		break;
 	}
 	case 3:
@@ -417,15 +417,15 @@ remaking(struct kino* data)
 		printf("Старое значение: %f\n", data[num].cost);
 		printf("Введите новое значение: ");
 		data[num].cost = inputDigit();
-		printf("Новое значение: %s\n", data[num].cost);
+		printf("Новое значение: %f\n", data[num].cost);
 		break;
 	}
 	case 4:
 	{
-		printf("Старое значение: %s\n", data[num].numbOfVisitors);
+		printf("Старое значение: %d\n", data[num].numbOfVisitors);
 		printf("Введите новое значение: ");
 		data[num].numbOfVisitors = inputNatural();
-		printf("Новое значение: %s\n", data[num].numbOfVisitors);
+		printf("Новое значение: %d\n", data[num].numbOfVisitors);
 		break;
 	}
 	default:
