@@ -21,10 +21,6 @@ int isNumber(char input[], int length)
 	if (counter == n) return true;
 	else
 	{
-		printf("Вы явно ввели не число\n");
-		printf("Press any key to continue...\n");
-		_getch();
-		system("cls");
 		return false;
 	}
 }
@@ -49,10 +45,6 @@ int isNatural(char arr[], int length)
 
 		if (errors != 0)
 		{
-			printf("Вы явно ввели что-то не то\n");
-			printf("Press any key to continue...\n");
-			_getch();
-			system("cls");
 			return false;
 		}
 		return true;
@@ -78,10 +70,6 @@ int isInteger(char arr[], int length)
 
 		if (errors != 0)
 		{
-			printf("Вы явно ввели что-то не то\n");
-			printf("Press any key to continue...\n");
-			_getch();
-			system("cls");
 			return false;
 		}
 		return true;
@@ -119,10 +107,6 @@ int isDigit(char arr[], int length)
 
 		if (errors != 0)
 		{
-			printf("Вы явно ввели что-то не то\n");
-			printf("Press any key to continue...\n");
-			_getch();
-			system("cls");
 			return false;
 		}
 		return true;

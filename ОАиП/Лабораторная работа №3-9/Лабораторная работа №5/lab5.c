@@ -22,7 +22,13 @@ int inputNatural()
 	if (isNatural(input, inputLength) == true) {
 		sscanf_s(input, "%d", &n); free(input);  return n;
 	}
-	else mainMenu();
+	else 
+	{
+		printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+		_getch();
+		system("cls");
+		mainMenu();
+	}
 }
 
 int inputInteger()
@@ -40,7 +46,13 @@ int inputInteger()
 	if (isInteger(input, inputLength) == true) {
 		sscanf_s(input, "%d", &n); free(input); return n;
 	}
-	else mainMenu();
+	else
+	{
+		printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+		_getch();
+		system("cls");
+		mainMenu();
+	}
 }
 
 int main()

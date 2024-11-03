@@ -29,6 +29,8 @@ int inputNatural()
 	}
 	else
 	{
+		printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+		_getch();
 		free(input);
 		mainMenu();
 		return -1;
@@ -52,6 +54,8 @@ int inputInteger()
 	}
 	else
 	{
+		printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+		_getch();
 		free(input);
 		mainMenu();
 		return -1;
@@ -90,7 +94,14 @@ float inputDigit()
 			return temp;
 		}
 	}
-	else { free(input); mainMenu(); return -1; }
+	else 
+	{ 
+		free(input); 
+		printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+		_getch(); 
+		mainMenu(); 
+		return -1; 
+	}
 }
 
 struct kino
@@ -342,7 +353,7 @@ finder()
 
 		int counter = 0;
 		printf("Введите ваш бюджет: ");
-		int cost = inputNatural();
+		int cost = inputDigit();
 		for (int i = 0; i < numberOfFilms; i++)
 			if (data[i].cost <= cost)
 			{

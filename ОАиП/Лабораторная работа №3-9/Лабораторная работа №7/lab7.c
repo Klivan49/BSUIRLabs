@@ -29,6 +29,8 @@ int inputNatural()
 	}
 	else
 	{
+		printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+		_getch();
 		free(input);
 		mainMenu();
 		return -1;
@@ -52,6 +54,8 @@ int inputInteger()
 	}
 	else
 	{
+		printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+		_getch();
 		free(input);
 		mainMenu();
 		return -1;
@@ -77,7 +81,14 @@ float inputDigit()
 		free(input);
 		return temp;
 	}
-	else { free(input); mainMenu(); return -1; }
+	else 
+	{ 
+		printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+		_getch();
+		free(input); 
+		mainMenu(); 
+		return -1; 
+	}
 }
 
 int main()

@@ -32,8 +32,7 @@ int inputNatural()
 	else
 	{
 		free(input);
-		fclose(f);
-		cinema();
+		return -1;
 	}
 }
 
@@ -55,8 +54,7 @@ int inputInteger()
 	else
 	{
 		free(input);
-		fclose(f);
-		cinema();
+		return -1.1;
 	}
 }
 
@@ -78,13 +76,7 @@ float inputDigit()
 		sscanf_s(input, "%f", &temp);
 		if (temp <= 0)
 		{
-			printf("Билет не может столько стоить!\n");
-			printf("Press any key to continue...");
 			free(input);
-			_getch();
-			system("cls");
-			fclose(f);
-			cinema();
 			return -1;
 		}
 		else
@@ -93,7 +85,7 @@ float inputDigit()
 			return temp;
 		}
 	}
-	else { free(input); mainMenu(); return -1; }
+	else { free(input); return -1; }
 }
 
 struct kino
@@ -234,6 +226,13 @@ inputStruct()
 		}
 		printf("Введите кол-во фильмов\n");
 		numberOfFilms = inputNatural();
+		if (numberOfFilms == -1)
+		{
+			printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+			fclose(f);
+			_getch();
+			return 0;
+		}
 		fwrite(&numberOfFilms, sizeof(int), 1, f);
 		fclose(f);
 	}
@@ -248,7 +247,14 @@ inputStruct()
 			return 0;
 		}
 		printf("Введите кол-во фильмов\n");
-		int addFilms = inputInteger();
+		int addFilms = inputNatural();
+		if (addFilms == -1)
+		{
+			printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+			fclose(f);
+			_getch();
+			return 0;
+		}
 		buff = numberOfFilms;
 		numberOfFilms += addFilms;
 		fwrite(&numberOfFilms, sizeof(int), 1, f);
@@ -276,6 +282,15 @@ inputStruct()
 
 		printf("Введите количество зрителей: ");
 		film.numbOfVisitors = inputNatural();
+
+		if (film.session == -1 || film.cost == -1.1 || film.numbOfVisitors == -1)
+		{
+			printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+			deleteFile();
+			_getch();
+			fclose(f);
+			return 0;
+		}
 
 		fwrite(&film, sizeof(film), 1, f);
 		printf("\n");
@@ -435,6 +450,13 @@ finder()
 		int counter = 0;
 		printf("Введите номер сеанса: ");
 		int session = inputNatural();
+		if (session == -1)
+		{
+			printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+			fclose(f);
+			_getch();
+			return 0;
+		}
 		for (int i = 0; i < numberOfFilms; i++)
 			if (arrOfFilms[i].session == session)
 			{
@@ -449,7 +471,14 @@ finder()
 
 		int counter = 0;
 		printf("Введите ваш бюджет: ");
-		int cost = inputNatural();
+		int cost = inputDigit();
+		if (cost == -1.1)
+		{
+			printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+			fclose(f);
+			_getch();
+			return 0;
+		}
 		for (int i = 0; i < numberOfFilms; i++)
 			if (arrOfFilms[i].cost <= cost)
 			{
@@ -464,6 +493,13 @@ finder()
 		int counter = 0;
 		printf("Насколько популярен должен быть фильм?(минимум зрителей): ");
 		int numbOfVisitors = inputNatural();
+		if (numbOfVisitors == -1)
+		{
+			printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+			fclose(f);
+			_getch();
+			return 0;
+		}
 		for (int i = 0; i < numberOfFilms; i++)
 			if (arrOfFilms[i].numbOfVisitors >= numbOfVisitors)
 			{
@@ -538,14 +574,26 @@ remaking()
 		printf("Старое значение: %d\n", arrOfFilms[num].session);
 		printf("Введите новое значение: ");
 		arrOfFilms[num].session = inputNatural();
-		printf("Новое значение: %d\n", arrOfFilms[num].session);
-		break;
+		if (arrOfFilms[num].session == -1)
+		{
+			printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+			fclose(f);
+			_getch();
+			return 0;
+		}
 	}
 	case 3:
 	{
 		printf("Старое значение: %.2f\n", arrOfFilms[num].cost);
 		printf("Введите новое значение: ");
 		arrOfFilms[num].cost = inputDigit();
+		if (arrOfFilms[num].cost == -1.1)
+		{
+			printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+			fclose(f);
+			_getch();
+			return 0;
+		}
 		printf("Новое значение: %.2f\n", arrOfFilms[num].cost);
 		break;
 	}
@@ -554,6 +602,13 @@ remaking()
 		printf("Старое значение: %d\n", arrOfFilms[num].numbOfVisitors);
 		printf("Введите новое значение: ");
 		arrOfFilms[num].numbOfVisitors = inputNatural();
+		if (arrOfFilms[num].numbOfVisitors == -1)
+		{
+			printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+			fclose(f);
+			_getch();
+			return 0;
+		}
 		printf("Новое значение: %d\n", arrOfFilms[num].numbOfVisitors);
 		break;
 	}
@@ -609,7 +664,14 @@ deleting()
 	for (int i = 0; i < numberOfFilms; i++)
 		printf("%d -- %s", i + 1, arrOfFilms[i].name);
 	num = inputNatural() - 1;
-	if (num <= numberOfFilms)
+	if (num == -2)
+	{
+		printf("Вы ввели что-то не то...\nPress any key to continue...\n");
+		fclose(f);
+		_getch();
+		return 0;
+	}
+	if (num < numberOfFilms)
 	{
 		numberOfFilms--;
 		if (fopen_s(&f, "numberOfFilms.bin", "r+b") != 0)
@@ -670,8 +732,8 @@ outputStruct(int n, int num)
 	}
 	if (n == 1)
 	{
+		fseek(f, sizeof(struct kino) * num, SEEK_SET);
 		fread(&film, sizeof(film), 1, f);
-		fseek(f, sizeof(struct kino)* num, SEEK_SET);
 		printf("Название фильма: %s", film.name);
 		printf("Номер сеанса: %d\n", film.session);
 		printf("Стоимость билета: %.2f\n", film.cost);
