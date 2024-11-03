@@ -8,8 +8,9 @@
 #include <time.h>
 #include "LibForMe.h"
 #include <stdbool.h>
+#include <ctype.h>
 
-FILE* f;
+FILE *f, *f1;
 
 int inputNatural()
 {
@@ -96,9 +97,8 @@ struct kino
 	int numbOfVisitors;
 };
 
-struct kino film;
+struct kino *arrOfFilms, film;
 
-struct kino* arrOfFilms;
 
 int main()
 {
@@ -122,6 +122,7 @@ int mainMenu()
 	{
 	case 1:
 	{
+		files();
 		break;
 	}
 	case 2:
@@ -138,6 +139,64 @@ int mainMenu()
 	}
 	}
 	return 1;
+}
+
+int contains_digit(const char* str) {
+	while (*str) {
+		if (isdigit(*str)) {
+			return 1;
+		}
+		str++;
+	}
+	return 0;
+}
+
+files()
+{
+	char str[256];
+	int counter = 0;
+	fopen_s(&f, "F1.txt", "wt");
+	printf("Вводите строки(пустая строка после 10-ой -- конец):\n");
+	while (1)
+	{
+		counter++;
+		fgets(str, 256, stdin);
+		if (counter > 10 && str[0] == '\n')
+			break;
+		fprintf(f, "%s", str);
+		memset(str, 0, sizeof(str));
+	}
+	fclose(f);
+	if (fopen_s(&f, "F1.txt", "rt") != 0)
+	{
+		printf("Ошибка создания файла1(\n");
+		_getch();
+		return 0;
+	}
+	if (fopen_s(&f1, "F2.txt", "wt") != 0)
+	{
+		printf("Ошибка создания файла2(\n");
+		_getch();
+		return 0;
+	}
+	while (fgets(str, sizeof(str), f)) {
+		if (contains_digit(str)) {
+			fputs(str, f1);
+		}
+	}
+	fclose(f);
+	fclose(f1);
+	if (fopen_s(&f1, "F2.txt", "rt") != 0)
+	{
+		printf("Ошибка создания файла2(\n");
+		_getch();
+		return 0;
+	}
+	printf("Строки, содержащие цифры: \n");
+	while (fgets(str, sizeof(str), f1))
+		printf("%s", str);
+	_getch();
+	fclose(f1);
 }
 
 cinema()
