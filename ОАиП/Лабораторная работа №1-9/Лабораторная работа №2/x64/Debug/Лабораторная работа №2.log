@@ -1,0 +1,7 @@
+﻿  lab2.c
+C:\Programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №2\lab2.c(10,9): warning C4013: mainMenu: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №2\lab2.c(23,3): warning C4013: _getch: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №2\lab2.c(48,3): warning C4013: geometrickProgression: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №2\lab2.c(51,3): warning C4013: luckyTick: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\Лабораторная работа №2\lab2.c(54,3): warning C4013: age: нет определения; предполагается "extern" с возвратом типа "int"
+  Лабораторная работа №2.vcxproj -> C:\Programming\BSUIRLabs\ОАиП\Лабораторная работа №3-9\x64\Debug\Лабораторная работа №2.exe
