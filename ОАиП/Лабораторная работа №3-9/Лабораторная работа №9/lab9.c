@@ -99,7 +99,6 @@ struct kino
 
 struct kino *arrOfFilms, film;
 
-
 int main()
 {
 	char* locale = setlocale(LC_ALL, "");
