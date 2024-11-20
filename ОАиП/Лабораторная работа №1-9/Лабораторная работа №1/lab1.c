@@ -1,7 +1,38 @@
 #include <stdio.h>
 #include <locale.h>
 #include <math.h>
+#include "LibForMe.h"
 #define M_PI 3.14159265358979323846
+
+float inputDigit()
+{
+	char* input;
+	int inputLength;
+	char buff[100];
+	float temp = 0;
+
+	fgets(buff, sizeof(buff), stdin);
+	inputLength = strlen(buff) - 1;
+	input = (char*)malloc(inputLength * sizeof(char));
+	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
+	memset(buff, 0, sizeof(buff));
+	if (isDigit(input, inputLength) == true)
+	{
+		for (int i = 0; i < inputLength; i++) if (input[i] == '.') { input[i] = ','; }
+		sscanf_s(input, "%f", &temp);
+		if (temp <= 0)
+		{
+			free(input);
+			return -1;
+		}
+		else
+		{
+			free(input);
+			return temp;
+		}
+	}
+	else { free(input); return -1; }
+}
 
 int main()
 {
@@ -38,11 +69,16 @@ int cone(void)
 	float v, s1, s2, h, r, l;
 
 	printf("Введите длинну ребра конуса\n");
-	scanf_s("%f", &l);
+	l = inputDigit();
 	printf("Введите радиус основания конуса\n");
-	scanf_s("%f", &r);
+	r = inputDigit();
 	printf("Введите высоту конуса\n");
-	scanf_s("%f", &h);
+	h = inputDigit();
+	if (l <= 0 || r <= 0 || h <= 0)
+	{
+		printf("Вы что-то не то ввели!\n");
+		return 0;
+	}
 	s1 = 2 * M_PI * r * l;
 	s2 = 2 * M_PI * pow((double)r, 2) + 2 * M_PI * r * l;
 	v = ((float)1 / 3) * 2 * M_PI * pow((double)r, 2) * h;
@@ -57,11 +93,16 @@ int sTriangle(void)
 	float a, b, c, p, s;
 
 	printf("Введите сторону a\n");
-	scanf_s("%f", &a);
+	a = inputDigit();
 	printf("Введите сторону b\n");
-	scanf_s("%f", &b);
+	b = inputDigit();
 	printf("Введите сторону c\n");
-	scanf_s("%f", &c);
+	c = inputDigit();
+	if (a <= 0 || b <= 0 || c <= 0)
+	{
+		printf("Вы что-то не то ввели!\n");
+		return 0;
+	}
 	if (a >= b + c) printf("Такого треугольника не существует\n");
 	else if (b >= a + c) printf("Такого треугольника не существует\n");
 	else if (c >= a + b) printf("Такого треугольника не существует\n");
