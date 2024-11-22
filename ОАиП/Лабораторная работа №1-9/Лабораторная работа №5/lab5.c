@@ -103,7 +103,8 @@ int sqrMassive()
 	printf("Введите разрядность матрицы: ");
 	lines = inputNatural();
 	massive = (int **)calloc(lines, sizeof(int*));
-	for (int i = 0; i < lines; i++) massive[i] = (int*)calloc(lines, sizeof(int));
+	for (int i = 0; i < lines; i++) 
+		massive[i] = (int*)calloc(lines, sizeof(int));
 	printf("Введите элементы массива:\n"); //Введение элементов массива
 	for (int i = 0; i < lines; i++)
 	{

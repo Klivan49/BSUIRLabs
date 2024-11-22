@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <time.h>
 #include "LibForMe.h"
 
 int inputNatural()
@@ -180,7 +181,7 @@ superMassive()
 int massiveXYZ()
 {
 	int** massive; //Создание указателя на массив
-	int lines, rows, counter, sum = 0, diagsum = 0, ediagsum = 0, temp1, temp2, buf;
+	int lines, rows, counter2 = 0, row;
 
 	printf("Введите кол-во строк матрицы: ");
 	lines = inputNatural();
@@ -189,18 +190,39 @@ int massiveXYZ()
 
 	massive = (int**)calloc(lines, sizeof(int*));
 	for (int i = 0; i < lines; i++) massive[i] = (int*)calloc(rows, sizeof(int));
-	printf("Введите элементы массива:\n"); //Введение элементов массива
 	for (int i = 0; i < lines; i++)
 	{
 		for (int j = 0; j < rows; j++)
-		{
-			printf("a[%d][%d] = ", i + 1, j + 1);
-			massive[i][j] = inputInteger();
-		}
+			massive[i][j] = rand() % 10;
 	}
 	for (int i = 0; i < lines; i++)
 	{
 		for (int j = 0; j < lines; j++) printf("%d ", massive[i][j]);
 		printf("\n");
 	}
+
+	for (int i = 0; i < rows; i++) {
+		int counter = 1; 
+		for (int j = 1; j < lines; j++) 
+		{ 
+			if (massive[j][i] == massive[j - 1][i]) 
+				counter++;
+			else 
+			{ 
+				if (counter > counter2) 
+				{ 
+					counter2 = counter; 
+					row = i; 
+				} 
+				counter = 1; 
+			} 
+		} 
+		if (counter > counter2)
+		{
+			counter2 = counter;
+			row = i;
+		}
+	}
+	printf("Номер столбца с максимальным количеством плвторяющихся элементов: %d\n", row+1);
+			
 }
