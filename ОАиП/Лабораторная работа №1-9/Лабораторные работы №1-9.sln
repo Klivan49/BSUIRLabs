@@ -21,7 +21,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Лабораторная р
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Лабораторная работа №2", "Лабораторная работа №2\Лабораторная работа №2.vcxproj", "{FFAA33BB-9D69-4D48-96D4-F28A9FC2F0AB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Лабораторная работа №6.2", "Лабораторная работа №6.2\Лабораторная работа №6.2.vcxproj", "{A4633B17-5BC0-4C4C-A544-97FD73C6F5FF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Лабораторная работа №7.2", "Лабораторная работа №7.2\Лабораторная работа №6.2.vcxproj", "{A4633B17-5BC0-4C4C-A544-97FD73C6F5FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

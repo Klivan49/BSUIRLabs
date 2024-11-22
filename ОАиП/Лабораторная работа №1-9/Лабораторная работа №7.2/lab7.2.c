@@ -5,54 +5,8 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-#include <time.h>
 #include <stdbool.h>
-
-int isNumber(char input[], int length)
-{
-
-	int n, i, counter = 0;
-	n = length;
-	for (i = 0; i < n; i++)
-		if (input[i] >= '0'
-			&& input[i] <= '9'
-			|| input[i] == '+'
-			|| input[i] == '-'
-			|| input[i] == '.'
-			|| input[i] == ',') counter++;
-	if (counter == n) return true;
-	else
-	{
-		return false;
-	}
-}
-
-int isNatural(char arr[], int length)
-{
-	int nat, i, n, errors = 0;
-	n = length;
-	if (isNumber(arr, n) == true)
-	{
-		for (i = 0; i < n; i++)
-			if (arr[i] == '-' || arr[i] == '+') errors++;
-
-		for (i = 0; i < n; i++)
-			if (arr[i] == ',' || arr[i] == '.') errors++;
-
-		for (i = 0; i < n; i++)
-			if ((arr[0] == '0'
-				|| arr[i] < '0'
-				|| arr[i] > '9')
-				&& arr[i] != ' ') errors++;
-
-		if (errors != 0)
-		{
-			return false;
-		}
-		return true;
-	}
-	else return false;
-}
+#include "LibForMe.h"
 
 int inputNatural()
 {
@@ -94,22 +48,20 @@ int sorting()
 {
 	int count;
 	int length; char** massive; char* temp; printf("Введите количество символов в строках: "); 
-	length = inputNatural(); printf("Введите количество строк: "); count = inputNatural(); // Выделение памяти под массив строк 
+	length = inputNatural(); printf("Введите количество строк: "); count = inputNatural();
 	massive = (char**)malloc(count * sizeof(char*)); 
 	for (int i = 0; i < count; i++) 
-		massive[i] = (char*)malloc((length + 1) * sizeof(char)); // +1 для символа конца строки 
+		massive[i] = (char*)malloc((length + 1) * sizeof(char));
 	printf("Введите строки, которые надо отсортировать:\n"); 
 	for (int i = 0; i < count; i++) 
 	{ 
 		fgets(massive[i], length + 1, stdin); 
-		massive[i][strcspn(massive[i], "\n")] = '\0'; // Удаляем символ новой строки 
+		massive[i][strcspn(massive[i], "\n")] = '\0';
 	} 
 	printf("Исходные строки:\n"); 
 	for (int i = 0; i < count; i++) 
 		puts(massive[i]); 
-	// Выделение памяти для temp 
 	temp = (char*)malloc((length + 1) * sizeof(char)); 
-	// Сортировка строк 
 	for (int i = 0; i < count - 1; i++) 
 		for (int j = i + 1; j < count; j++) 
 			if (strcmp(massive[i], massive[j]) > 0) 

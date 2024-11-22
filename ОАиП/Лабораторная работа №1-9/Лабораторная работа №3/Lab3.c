@@ -6,16 +6,16 @@
 
 int inputNatural()
 {
-	char* input; //создание указателя на массив
+	char* input;
 	int inputLength;
-	char buff[100]; //буферный массив, который мы потом обнулим
+	char buff[100];
 	int n = 0;
 
-	fgets(buff, sizeof(buff), stdin); //получает строку из из консоли как массив символов
+	fgets(buff, sizeof(buff), stdin);
 	inputLength = strlen(buff) - 1;
-	input = (char*)malloc(inputLength * sizeof(char)); //выделяет память из стэка в 
+	input = (char*)malloc(inputLength * sizeof(char));
 	for (int i = 0; i < inputLength; i++) input[i] = buff[i];
-	memset(buff, 0, sizeof(buff)); //"Обнуляет" массив buff
+	memset(buff, 0, sizeof(buff));
 	if (isNatural(input, inputLength) == true)
 	{
 		sscanf_s(input, "%d", &n);
@@ -28,9 +28,8 @@ int inputNatural()
 int main()
 {
 	char* locale = setlocale(LC_ALL, "");
-	system("chcp 1251"); //кодировка
-	system("cls"); //очистка конслоли
-
+	system("chcp 1251");
+	system("cls");
 	while (mainMenu());
 }
 

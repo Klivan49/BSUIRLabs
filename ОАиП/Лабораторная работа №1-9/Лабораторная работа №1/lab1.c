@@ -63,7 +63,6 @@ int main()
 	}
 }
 
-
 int cone(void)
 {
 	float v, s1, s2, h, r, l;
