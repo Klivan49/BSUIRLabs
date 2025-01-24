@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\main.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|solutionrelative:main.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\admin.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|solutionrelative:admin.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\config.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|solutionrelative:config.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\handlers.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|solutionrelative:handlers.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\utils.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|solutionrelative:utils.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\states.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|solutionrelative:states.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\middlewares.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|solutionrelative:middlewares.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\kb.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|solutionrelative:kb.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\db.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|solutionrelative:db.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\text.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6538B82F-5E7B-40FC-BB35-067E823C16AE}|BotTG.pyproj|solutionrelative:text.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.py",
+              "DocumentMoniker": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\main.py",
+              "RelativeDocumentMoniker": "main.py",
+              "ToolTip": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\main.py",
+              "RelativeToolTip": "main.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-24T17:24:03.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "admin.py",
+              "DocumentMoniker": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\admin.py",
+              "RelativeDocumentMoniker": "admin.py",
+              "ToolTip": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\admin.py",
+              "RelativeToolTip": "admin.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-24T17:41:01.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "config.py",
+              "DocumentMoniker": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\config.py",
+              "RelativeDocumentMoniker": "config.py",
+              "ToolTip": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\config.py",
+              "RelativeToolTip": "config.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-24T17:25:12.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "handlers.py",
+              "DocumentMoniker": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\handlers.py",
+              "RelativeDocumentMoniker": "handlers.py",
+              "ToolTip": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\handlers.py",
+              "RelativeToolTip": "handlers.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-24T17:40:42.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "utils.py",
+              "DocumentMoniker": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\utils.py",
+              "RelativeDocumentMoniker": "utils.py",
+              "ToolTip": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\utils.py",
+              "RelativeToolTip": "utils.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-24T17:40:29.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "states.py",
+              "DocumentMoniker": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\states.py",
+              "RelativeDocumentMoniker": "states.py",
+              "ToolTip": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\states.py",
+              "RelativeToolTip": "states.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-24T17:40:06.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "middlewares.py",
+              "DocumentMoniker": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\middlewares.py",
+              "RelativeDocumentMoniker": "middlewares.py",
+              "ToolTip": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\middlewares.py",
+              "RelativeToolTip": "middlewares.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-24T17:39:46.137Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "kb.py",
+              "DocumentMoniker": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\kb.py",
+              "RelativeDocumentMoniker": "kb.py",
+              "ToolTip": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\kb.py",
+              "RelativeToolTip": "kb.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-24T17:39:08.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "db.py",
+              "DocumentMoniker": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\db.py",
+              "RelativeDocumentMoniker": "db.py",
+              "ToolTip": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\db.py",
+              "RelativeToolTip": "db.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-24T17:38:41.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "text.py",
+              "DocumentMoniker": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\text.py",
+              "RelativeDocumentMoniker": "text.py",
+              "ToolTip": "C:\\Programming\\BSUIRLabs\\\u041E\u0410\u0438\u041F\\BotTG\\text.py",
+              "RelativeToolTip": "text.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-24T17:26:52.46Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

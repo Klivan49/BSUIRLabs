@@ -149,7 +149,8 @@ inclusiviness()
 	rows = inputNatural();
 
 	massive = (float**)calloc(lines, sizeof(float*));
-	for (int i = 0; i < lines; i++) massive[i] = (float*)calloc(rows, sizeof(float));
+	for (int i = 0; i < lines; i++) 
+		massive[i] = (float*)calloc(rows, sizeof(float));
 
 	printf("Введёте всё сами или доверитесь судьбе?(1/2): ");
 	n = inputNatural();

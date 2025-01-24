@@ -87,7 +87,7 @@ int isDigit(char arr[], int length)
 			if ((arr[i] < '0'
 				|| arr[i] > '9')
 				&& arr[i] != ' '
-				&& arr[i] != '+ '
+				&& arr[i] != '+'
 				&& arr[i] != '-'
 				&& arr[i] != '.'
 				&& arr[i] != ',') errors++;
