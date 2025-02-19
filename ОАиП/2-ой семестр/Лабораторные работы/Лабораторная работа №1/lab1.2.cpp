@@ -19,7 +19,7 @@ struct Job
     float profit;    
 };
 
-int inputInteger() {
+extern int inputInteger() {
     int value;
     while (true) {
         if (std::cin >> value) {
@@ -34,7 +34,7 @@ int inputInteger() {
     }
 }
 
-float inputDigit() {
+extern float inputDigit() {
     float value;
     while (true) {
         if (std::cin >> value) {
@@ -49,12 +49,7 @@ float inputDigit() {
     }
 }
 
-void getStringInput(char* buffer, int bufferSize) {
-    std::cin.get();
-    std::cin.getline(buffer, bufferSize);
-}
-
-int inputStruct() {
+extern int inputStruct() {
     int numberOfJobs = 0, newJobs = 0;
     std::ifstream inFile("numberOfJobs.txt");
     if (inFile) {
@@ -85,9 +80,8 @@ int inputStruct() {
         if (job.cost < 0 || job.revenue < 0) {
             std::cerr << "Вы ввели что-то не то...\nPress any key to continue...\n";
             outFile.close();
-            deleteFile();
             system("pause");
-            return 0;
+            return 1;
         }
         outFile << job.name << " " << job.cost << " " << job.revenue << " " << job.profit << std::endl;
     }
@@ -104,7 +98,7 @@ int inputStruct() {
     return 1;
 }
 
-int outputStruct(int n, int num) {
+extern int outputStruct(int n, int num) {
     int numberOfJobs = 0;
     std::ifstream readJobCount("numberOfJobs.txt");
     if (readJobCount) {
@@ -169,7 +163,7 @@ int outputStruct(int n, int num) {
     return 1;
 }
 
-int sorting() {
+extern int sorting() {
     std::cout << "Как именно вы хотите отсортировать фильмы?\n"
         << "1 -- В алфавитном порядке по названию\n"
         << "2 -- По стоимости\n"
@@ -237,7 +231,7 @@ int sorting() {
     return 1;
 }
 
-void text()
+extern void text()
 {
     std::cout << std::left << std::setw(20) << "Название работы"
         << std::setw(15) << "Стоимость"
@@ -246,7 +240,7 @@ void text()
     std::cout << std::string(65, '=') << std::endl;
 }
 
-int finder() {
+extern int finder() {
     std::cout << "По какому параметру вы будете проводить поиск?\n"
         << "1 -- По названию работы\n"
         << "2 -- По стоимости работы\n"
@@ -284,7 +278,7 @@ int finder() {
     case 1: {
         char input[30];
         std::cout << "Введите название работы: ";
-        getStringInput(input, 30);
+        std::cin.getline(input, 30);
         text();
         for (int i = 0; i < arrOfJobs.size(); ++i) {
             if (strcmp(arrOfJobs[i].name, input) == 0) {
@@ -347,7 +341,7 @@ int finder() {
     return 1;
 }
 
-int remaking() {
+extern int remaking() {
     int numberOfJobs;
     std::ifstream inFile("numberOfJobs.txt");
     if (!inFile) {
@@ -371,13 +365,13 @@ int remaking() {
     }
     inFileJob.close();
 
-    std::cout << "Информацию о каком фильме вы хотите изменить?\n";
+    std::cout << "Информацию о какой работе вы хотите изменить?\n";
     for (int i = 0; i < arrOfJobs.size(); ++i) {
         std::cout << i + 1 << " -- " << arrOfJobs[i].name << '\n';
     }
     int num = inputInteger();
     if (num < 1 || num > numberOfJobs) {
-        std::cerr << "Такого фильма нет\n";
+        std::cerr << "Такой работы нет\n";
         return 0;
     }
     num--;
@@ -397,7 +391,7 @@ int remaking() {
     case 1:
         std::cout << "Старое значение: " << arrOfJobs[num].name << '\n';
         std::cout << "Введите новое значение: ";
-        getStringInput(arrOfJobs[num].name, 30);
+        std::cin >> arrOfJobs[num].name;
         break;
     case 2:
         std::cout << "Старое значение: " << arrOfJobs[num].cost << '\n';
@@ -434,7 +428,7 @@ int remaking() {
     return 1;
 }
 
-int deleting() {
+extern int deleting() {
     int numberOfJobs;
     std::ifstream inFile("numberOfJobs.txt");
     if (!inFile) {
