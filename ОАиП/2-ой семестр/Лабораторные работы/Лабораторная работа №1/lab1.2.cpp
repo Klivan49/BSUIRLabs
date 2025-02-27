@@ -1,5 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -9,7 +7,9 @@
 #include <iomanip>
 #include <conio.h>
 #include <cstring>
+#include <chrono>
 #include "lab1.3.h"
+#include <functional>
 
 struct Job 
 {
@@ -47,6 +47,67 @@ extern float inputDigit() {
             std::cout << "Неверный ввод. Пожалуйста, введите число: ";
         }
     }
+}
+
+void selectionSort(std::vector<Job>& arr, std::function<bool(const Job&, const Job&)> comp) {
+    auto start = std::chrono::high_resolution_clock::now();
+    int n = arr.size();
+    for (int i = 0; i < n - 1; i++) {
+        int min_idx = i;
+        for (int j = i + 1; j < n; j++) {
+            if (comp(arr[j], arr[min_idx])) {
+                min_idx = j;
+            }
+        }
+        std::swap(arr[i], arr[min_idx]);
+    }
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+    std::cout << "Время сортировки выбором:\n" << duration.count() * 1000000
+        << " наносекунд\n" << duration.count() * 1000
+        << " миллисекунд\n" << duration.count()
+        << " секунд" << std::endl;
+}
+
+void insertionSort(std::vector<Job>& arr, std::function<bool(const Job&, const Job&)> comp) {
+    auto start = std::chrono::high_resolution_clock::now();
+    int n = arr.size();
+    for (int i = 1; i < n; i++) {
+        Job key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && comp(key, arr[j])) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+    std::cout << "Время сортировки вставками:\n" << duration.count() * 1000000
+        << " наносекунд\n" << duration.count() * 1000
+        << " миллисекунд\n" << duration.count()
+        << " секунд" << std::endl;
+}
+
+void shellSort(std::vector<Job>& arr, std::function<bool(const Job&, const Job&)> comp) {
+    auto start = std::chrono::high_resolution_clock::now();
+    int n = arr.size();
+    for (int gap = n / 2; gap > 0; gap /= 2) {
+        for (int i = gap; i < n; i++) {
+            Job temp = arr[i];
+            int j;
+            for (j = i; j >= gap && comp(temp, arr[j - gap]); j -= gap) {
+                arr[j] = arr[j - gap];
+            }
+            arr[j] = temp;
+        }
+    }
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+    std::cout << "Время сортировки методом Шелла:\n" << duration.count() * 1000000
+        << " наносекунд\n" << duration.count() * 1000
+        << " миллисекунд\n" << duration.count()
+        << " секунд" << std::endl;
 }
 
 extern int inputStruct() {
@@ -164,7 +225,7 @@ extern int outputStruct(int n, int num) {
 }
 
 extern int sorting() {
-    std::cout << "Как именно вы хотите отсортировать фильмы?\n"
+    std::cout << "Как именно вы хотите отсортировать работы?\n"
         << "1 -- В алфавитном порядке по названию\n"
         << "2 -- По стоимости\n"
         << "3 -- По доходу\n"
@@ -173,15 +234,28 @@ extern int sorting() {
 
     int n = inputInteger();
     if (n < 1 || n > 5) {
-        std::cout << "Вы ввели что-то не то...";
+        std::cout << "Вы ввели что-то не то...\n";
         return 0;
     }
     if (n == 5) return 0;
 
+    std::cout << "Выберите тип сортировки:\n"
+        << "1 -- Сортировка выбором\n"
+        << "2 -- Сортировка вставками\n"
+        << "3 -- Сортировка Шелла\n"
+        << "4 -- Выход\n";
+
+    int sortType = inputInteger();
+    if (sortType < 1 || sortType > 4) {
+        std::cout << "Вы ввели что-то не то...\n";
+        return 0;
+    }
+    if (sortType == 4) return 0;
+
     int numberOfJobs;
     std::ifstream inFile("numberOfJobs.txt");
     if (!inFile) {
-        std::cerr << "Ошибка открытия файла(\n";
+        std::cerr << "Ошибка открытия файла numberOfJobs.txt\n";
         return 0;
     }
     inFile >> numberOfJobs;
@@ -190,10 +264,9 @@ extern int sorting() {
     std::vector<Job> arrOfJobs(numberOfJobs);
     std::ifstream inFileJob("jobs.txt");
     if (!inFileJob) {
-        std::cerr << "Ошибка открытия файла(\n";
+        std::cerr << "Ошибка открытия файла jobs.txt\n";
         return 0;
     }
-
     for (int i = 0; i < numberOfJobs; ++i) {
         inFileJob.getline(arrOfJobs[i].name, 30, ' ');
         inFileJob >> arrOfJobs[i].cost >> arrOfJobs[i].revenue >> arrOfJobs[i].profit;
@@ -201,33 +274,46 @@ extern int sorting() {
     }
     inFileJob.close();
 
-    for (int i = 0; i < numberOfJobs - 1; ++i) {
-        for (int j = i + 1; j < numberOfJobs; ++j) {
-            bool shouldSwap = false;
-            switch (n) {
-            case 1: shouldSwap = strcmp(arrOfJobs[i].name, arrOfJobs[j].name) > 0; break;
-            case 2: shouldSwap = arrOfJobs[i].cost > arrOfJobs[j].cost; break;
-            case 3: shouldSwap = arrOfJobs[i].revenue > arrOfJobs[j].revenue; break;
-            case 4: shouldSwap = arrOfJobs[i].profit > arrOfJobs[j].profit; break;
-            }
-            if (shouldSwap) {
-                Job temp = arrOfJobs[i];
-                arrOfJobs[i] = arrOfJobs[j];
-                arrOfJobs[j] = temp;
-            }
-        }
+    // Определение компаратора на основе критерия
+    std::function<bool(const Job&, const Job&)> comp;
+    switch (n) {
+    case 1: 
+        comp = [](const Job& a, const Job& b) { return strcmp(a.name, b.name) < 0; };
+        break;
+    case 2:
+        comp = [](const Job& a, const Job& b) { return a.cost < b.cost; };
+        break;
+    case 3:
+        comp = [](const Job& a, const Job& b) { return a.revenue < b.revenue; };
+        break;
+    case 4:
+        comp = [](const Job& a, const Job& b) { return a.profit < b.profit; };
+        break;
+    }
+
+    switch (sortType) {
+    case 1:
+        selectionSort(arrOfJobs, comp);
+        break;
+    case 2:
+        insertionSort(arrOfJobs, comp);
+        break;
+    case 3:
+        shellSort(arrOfJobs, comp);
+        break;
     }
 
     std::ofstream outFileJob("jobs.txt");
     if (!outFileJob) {
-        std::cerr << "Ошибка открытия файла(\n";
+        std::cerr << "Ошибка открытия файла jobs.txt для записи\n";
         return 0;
     }
-    for (const auto& Job : arrOfJobs) {
-        outFileJob << Job.name << " " << Job.cost << " " << Job.revenue << " " << Job.profit << std::endl;
+    for (const auto& job : arrOfJobs) {
+        outFileJob << job.name << " " << job.cost << " " << job.revenue << " " << job.profit << std::endl;
     }
     outFileJob.close();
 
+    std::cout << "Работы успешно отсортированы!\n";
     return 1;
 }
 

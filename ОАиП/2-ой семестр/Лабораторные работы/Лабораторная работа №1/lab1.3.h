@@ -10,4 +10,5 @@ extern void deleteFile();
 extern int mainMenu();
 extern int inputInteger();
 extern float inputDigit();
+
 void text();
