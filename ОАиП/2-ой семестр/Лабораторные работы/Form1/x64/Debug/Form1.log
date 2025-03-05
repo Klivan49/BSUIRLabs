@@ -1,18 +1,18 @@
 ﻿  MyForm.cpp
-C:\Programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Form1\MyForm.h(166,36): warning C5307: 'System::String ^System::String::Replace(wchar_t,wchar_t)': argument (1) converted from 'char' to 'wchar_t'. Missing 'L' encoding-prefix for character literal?
+C:\programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Form1\MyForm.h(166,36): warning C5307: 'System::String ^System::String::Replace(wchar_t,wchar_t)': argument (1) converted from 'char' to 'wchar_t'. Missing 'L' encoding-prefix for character literal?
   (компиляция исходного файла "MyForm.cpp")
   
-C:\Programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Form1\MyForm.h(166,36): warning C5307: 'System::String ^System::String::Replace(wchar_t,wchar_t)': argument (2) converted from 'char' to 'wchar_t'. Missing 'L' encoding-prefix for character literal?
+C:\programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Form1\MyForm.h(166,36): warning C5307: 'System::String ^System::String::Replace(wchar_t,wchar_t)': argument (2) converted from 'char' to 'wchar_t'. Missing 'L' encoding-prefix for character literal?
   (компиляция исходного файла "MyForm.cpp")
   
-C:\Programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Form1\MyForm.h(184,36): warning C5307: 'System::String ^System::String::Replace(wchar_t,wchar_t)': argument (1) converted from 'char' to 'wchar_t'. Missing 'L' encoding-prefix for character literal?
+C:\programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Form1\MyForm.h(185,36): warning C5307: 'System::String ^System::String::Replace(wchar_t,wchar_t)': argument (1) converted from 'char' to 'wchar_t'. Missing 'L' encoding-prefix for character literal?
   (компиляция исходного файла "MyForm.cpp")
   
-C:\Programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Form1\MyForm.h(184,36): warning C5307: 'System::String ^System::String::Replace(wchar_t,wchar_t)': argument (2) converted from 'char' to 'wchar_t'. Missing 'L' encoding-prefix for character literal?
+C:\programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Form1\MyForm.h(185,36): warning C5307: 'System::String ^System::String::Replace(wchar_t,wchar_t)': argument (2) converted from 'char' to 'wchar_t'. Missing 'L' encoding-prefix for character literal?
   (компиляция исходного файла "MyForm.cpp")
   
-C:\Programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Form1\MyForm.h(187,27): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Form1\MyForm.h(188,27): warning C4244: =: преобразование "double" в "int", возможна потеря данных
   (компиляция исходного файла "MyForm.cpp")
   
   MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
-  Form1.vcxproj -> C:\Programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\x64\Debug\Form1.exe
+  Form1.vcxproj -> C:\programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\x64\Debug\Form1.exe
