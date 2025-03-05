@@ -7,6 +7,7 @@
 #include <cstring>
 #include <stdexcept>
 #include <chrono>
+#include <conio.h>
 
 std::vector<int> array;
 
@@ -41,6 +42,85 @@ extern float inputDigit() {
     }
 }
 
+std::vector<int> linearSearch(const std::vector<int>& arr, int target) {
+    std::vector<int> positions;
+    for (size_t i = 0; i < arr.size(); ++i) {
+        if (arr[i] == target) {
+            positions.push_back(i);
+        }
+    }
+    return positions; // Если вектор пуст, элемент не найден
+}
+
+int binarySearch(const std::vector<int>& arr, int target, int left, int right) 
+{
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == target) {
+            // Нашли элемент, проверяем, первая ли это позиция
+            while (mid > 0 && arr[mid - 1] == target) {
+                mid--;
+            }
+            return mid;
+        }
+        else if (arr[mid] > target) {
+            right = mid - 1;
+        }
+        else {
+            left = mid + 1;
+        }
+    }
+    return -1; // Элемент не найден
+}
+
+void finder(const std::vector<int>& arr, const std::vector<int>& sorted) {
+    if (arr.empty()) {
+        std::cout << "Массив пуст. Пожалуйста, введите массив сначала." << std::endl;
+        return;
+    }
+    std::cout << "Введите значение элемента, позицию которого хотите найти в массиве: ";
+    int target = inputInteger();
+
+    // Линейный поиск
+    auto start = std::chrono::high_resolution_clock::now();
+    std::vector<int> linearPositions = linearSearch(arr, target);
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+
+    if (!linearPositions.empty()) {
+        std::cout << "Линейный поиск: Элемент найден на позициях: ";
+        for (int pos : linearPositions) {
+            std::cout << pos << " ";
+        }
+        std::cout << std::endl;
+    }
+    else {
+        std::cout << "Линейный поиск: Элемент не найден" << std::endl;
+    }
+    std::cout << "Время линейного поиска:\n" << duration.count() * 1000000
+        << " наносекунд\n" << duration.count() * 1000
+        << " милисекунд\n" << duration.count()
+        << " секунд\n" << std::endl;
+
+    // Бинарный поиск
+    start = std::chrono::high_resolution_clock::now();
+    int binaryPosition = binarySearch(sorted, target, 0, sorted.size() - 1);
+    end = std::chrono::high_resolution_clock::now();
+    duration = end - start;
+
+    if (binaryPosition != -1) {
+        std::cout << "Бинарный поиск: Элемент найден на позиции " << binaryPosition
+            << " в отсортированном массиве" << std::endl;
+    }
+    else {
+        std::cout << "Бинарный поиск: Элемент не найден в отсортированном массиве" << std::endl;
+    }
+    std::cout << "Время бинарного поиска:\n" << duration.count() * 1000000
+        << " наносекунд\n" << duration.count() * 1000
+        << " милисекунд\n" << duration.count()
+        << " секунд" << std::endl;
+}
+
 void printArray(const std::vector<int>& arr) 
 {
     for (int num : arr) {
@@ -51,12 +131,12 @@ void printArray(const std::vector<int>& arr)
 
 extern void inputArray()
 {
-    int n;
+    char n;
     std::cout << "Вы хотите сами задать массив или через рандом?(1/2)\n3 -- случайно нажал(a):\n";
-    n = inputInteger();
+    n = _getch();
     switch(n)
     {
-    case 1:
+    case '1':
     {
         std::string input;
         std::cout << "Введите элементы массива через пробел (Enter -- конец массива)" << std::endl;
@@ -73,22 +153,27 @@ extern void inputArray()
             std::cerr << "Ошибка ввода: некорректное значение в массиве" << std::endl;
         }
         std::cout << "Хотите вывести массив?(y/n)" << std::endl;
-        char ch = getchar();
-        if (ch == 'y' || ch == 'Y')
+        char ch = _getch();
+        if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
         {
             std::cout << "Получившийся массив:\n";
             printArray(array);
         }
-        else if (ch == 'n' || ch == 'N')
+        else if (ch == 'n' || ch == 'N' || ch == 'т' || ch == 'Т')
         {
         }
         else std::cout << "Вы ввели что-то не то :3";
         break;
     }
-    case 2:
+    case '2':
     {
         std::cout << "Введите количество элементов массива: ";
         int n = inputInteger();
+        if (n > 100000)
+        {
+            std::cout << "Слишком много элементов";
+            return;
+        }
         std::cout << "Введите нижню границу случайного числа: ";
         int start = inputInteger();
         std::cout << "Введите верхнюю границу случайного числа: ";
@@ -99,8 +184,8 @@ extern void inputArray()
             array.push_back(value);
         }
         std::cout << "Хотите вывести массив?(y/n)" << std::endl;
-        char ch = getchar();
-        if (ch == 'y' || ch == 'Y')
+        char ch = _getch();
+        if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
         {
             std::cout << "Получившийся массив:\n";
             printArray(array);
@@ -111,7 +196,7 @@ extern void inputArray()
         else std::cout << "Вы ввели что-то не то :3";
         break;
     }
-    case 3:
+    case '3':
     {
         break;
     }
@@ -142,18 +227,22 @@ extern void bubbleSort(std::vector<int>& arr)
         << " милисекунд\n" << duration.count() 
         << " секунд" << std::endl;
     std::cout << "Хотите вывести массивы?(y/n)" << std::endl;
-    char ch = getchar();
-    if (ch == 'y' || ch == 'Y')
+    char ch = _getch();
+    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
     {
         std::cout << "\nИсходный массив: ";
         printArray(array);
         std::cout << "\n\n\n\nОтсортированный массив: ";
         printArray(sorted);
     }
-    else if (ch == 'n' || ch == 'N')
+    else if (ch == 'n' || ch == 'N' || ch == 'т' || ch == 'Т')
     {
+        std::cout << "Вы ввели что-то не то :3";
     }
-    else std::cout << "Вы ввели что-то не то :3";
+    std::cout << "Хотите провести поиск?(y/n)" << std::endl;
+    ch = _getch();
+    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+        finder(arr, sorted);
 }
 
 extern void selectionSort(std::vector<int>& arr) 
@@ -177,18 +266,22 @@ extern void selectionSort(std::vector<int>& arr)
         << " милисекунд\n" << duration.count()
         << " секунд" << std::endl;
     std::cout << "Хотите вывести массивы?(y/n)" << std::endl;
-    char ch = getchar();
-    if (ch == 'y' || ch == 'Y')
+    char ch = _getch();
+    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
     {
         std::cout << "\nИсходный массив: ";
         printArray(array);
         std::cout << "\n\n\n\nОтсортированный массив: ";
         printArray(sorted);
     }
-    else if (ch == 'n' || ch == 'N')
+    else if (ch == 'n' || ch == 'N' || ch == 'т' || ch == 'Т')
     {
+        std::cout << "Вы ввели что-то не то :3";
     }
-    else std::cout << "Вы ввели что-то не то :3";
+    std::cout << "Хотите провести поиск?(y/n)" << std::endl;
+    ch = _getch();
+    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+        finder(arr, sorted);
 }
 
 extern void insertionSort(std::vector<int>& arr) 
@@ -212,18 +305,23 @@ extern void insertionSort(std::vector<int>& arr)
         << " милисекунд\n" << duration.count()
         << " секунд" << std::endl;
     std::cout << "Хотите вывести массивы?(y/n)" << std::endl;
-    char ch = getchar();
-    if (ch == 'y' || ch == 'Y')
+    char ch = _getch();
+    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
     {
         std::cout << "\nИсходный массив: ";
         printArray(array);
         std::cout << "\n\n\n\nОтсортированный массив: ";
         printArray(sorted);
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-    else if (ch == 'n' || ch == 'N')
+    else if (ch == 'n' || ch == 'N' || ch == 'т' || ch == 'Т')
     {
+        std::cout << "Вы ввели что-то не то :3";
     }
-    else std::cout << "Вы ввели что-то не то :3";
+    std::cout << "Хотите провести поиск?(y/n)" << std::endl;
+    ch = _getch();
+    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+        finder(arr, sorted);
 }
 
 extern void shellSort(std::vector<int>& arr) 
@@ -248,18 +346,22 @@ extern void shellSort(std::vector<int>& arr)
         << " милисекунд\n" << duration.count()
         << " секунд" << std::endl;
     std::cout << "Хотите вывести массивы?(y/n)" << std::endl;
-    char ch = getchar();
-    if (ch == 'y' || ch == 'Y')
+    char ch = _getch();
+    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
     {
         std::cout << "\nИсходный массив: ";
         printArray(array);
         std::cout << "\n\n\n\nОтсортированный массив: ";
         printArray(sorted);
     }
-    else if (ch == 'n' || ch == 'N')
+    else if (ch != 'n' && ch != 'N')
     {
+        std::cout << "Окей";
     }
-    else std::cout << "Вы ввели что-то не то :3";
+    std::cout << "Хотите провести поиск?(y/n)" << std::endl;
+    ch = _getch();
+    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+        finder(arr, sorted);
 }
 
 void quickSort(std::vector<int>& arr, int low, int high) {
@@ -290,18 +392,22 @@ extern void quickSortWrapper(std::vector<int>& arr) {
         << " милисекунд\n" << duration.count()
         << " секунд" << std::endl;
     std::cout << "Хотите вывести массивы?(y/n)" << std::endl;
-    char ch = getchar();
-    if (ch == 'y' || ch == 'Y')
+    char ch = _getch();
+    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
     {
         std::cout << "\nИсходный массив: ";
         printArray(array);
         std::cout << "\n\n\n\nОтсортированный массив: ";
         printArray(sorted);
     }
-    else if (ch == 'n' || ch == 'N')
+    else if (ch != 'n' && ch != 'N')
     {
+        std::cout << "Вы ввели что-то не то :3";
     }
-    else std::cout << "Вы ввели что-то не то :3";
+    std::cout << "Хотите провести поиск?(y/n)" << std::endl;
+    ch = _getch();
+    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+        finder(arr, sorted);
 }
 
 void merge(std::vector<int>& arr, int l, int m, int r) {
@@ -359,7 +465,7 @@ extern void mergeSortWrapper(std::vector<int>& arr)
         << " милисекунд\n" << duration.count()
         << " секунд" << std::endl;
     std::cout << "Хотите вывести массивы?(y/n)" << std::endl;
-    char ch = getchar();
+    char ch = _getch();
     if (ch == 'y' || ch == 'Y')
     {
         std::cout << "\nИсходный массив: ";
@@ -367,8 +473,12 @@ extern void mergeSortWrapper(std::vector<int>& arr)
         std::cout << "\n\n\n\nОтсортированный массив: ";
         printArray(sorted);
     }
-    else if (ch == 'n' || ch == 'N')
+    else if (ch != 'n' && ch != 'N')
     {
+        std::cout << "Вы ввели что-то не то :3";
     }
-    else std::cout << "Вы ввели что-то не то :3";
+    std::cout << "Хотите провести поиск?(y/n)" << std::endl;
+    ch = _getch();
+    if (ch == 'y' || ch == 'Y')
+        finder(arr, sorted);
 }

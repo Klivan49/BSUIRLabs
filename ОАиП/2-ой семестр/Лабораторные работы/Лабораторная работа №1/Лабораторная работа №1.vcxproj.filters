@@ -23,7 +23,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lab1.3.h">
+    <ClInclude Include="lab1.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

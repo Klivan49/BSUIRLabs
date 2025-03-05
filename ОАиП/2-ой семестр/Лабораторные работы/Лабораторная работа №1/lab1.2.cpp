@@ -8,7 +8,7 @@
 #include <conio.h>
 #include <cstring>
 #include <chrono>
-#include "lab1.3.h"
+#include "lab1.h"
 #include <functional>
 
 struct Job 

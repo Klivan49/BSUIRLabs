@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "lab1.3.h"
+#include "lab1.h"
 #include <locale.h>
 #include <iostream>
 #include <conio.h>

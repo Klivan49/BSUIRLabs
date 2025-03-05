@@ -12,3 +12,4 @@ extern void quickSortWrapper(std::vector<int>& arr);
 extern void insertionSort(std::vector<int>& arr);
 extern void selectionSort(std::vector<int>& arr);
 extern void bubbleSort(std::vector<int>& arr);
+std::vector<int> linearSearch(const std::vector<int>& arr, int target);

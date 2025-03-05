@@ -15,7 +15,7 @@ int main()
 
 extern int mainMenu()
 {
-    int n;
+    char n, target;
     std::cout << "Что вы хотите сделать?"
         "\n1 -- Ввести массив"
         "\n2 -- Отсортировать массив методом пузырька"
@@ -24,9 +24,10 @@ extern int mainMenu()
         "\n5 -- Отсортировать массив методом Шелла"
         "\n6 -- Отсортировать массив методом Хоора"
         "\n7 -- Отсортировать массив методом Слияния"
-        "\n8 -- Выйти\n";
-    n = inputInteger();
-    if (array.empty() && n != 1 && n != 8)
+        "\n8 -- Провести линейный поиск в исходном массиве"
+        "\n9 -- Выйти\n";
+    n = _getch();
+    if (array.empty() && n != '1' && n != '8')
     {
         std::cout << "Вы не ввели массив\n";
         system("pause");
@@ -37,45 +38,34 @@ extern int mainMenu()
     
     switch (n)
     {
-    case 1:
-    {
+    case '1':
         inputArray();
         break;
-    }
-    case 2:
-    {
+    case '2':
         bubbleSort(array);
         break;
-    }
-    case 3:
-    {
+    case '3':
         selectionSort(array);
         break;
-    }
-    case 4:
-    {
+    case '4':
         insertionSort(array);
         break;
-    }
-    case 5:
-    {
+    case '5':
         shellSort(array);
         break;
-    }
-    case 6:
-    {
+    case '6':
         quickSortWrapper(array);
         break;
-    }
-    case 7:
-    {
+    case '7':
         mergeSortWrapper(array);
         break;
-    }
-    case 8:
-    {
+    case '8':
+        std::cout << "Введите значение элемента, позицию которого хотите найти в массиве: ";
+        target = inputInteger();
+        linearSearch(array, target);
+        break;
+    case '9':
         return 0;
-    }
     default:
     {
         std::cerr << "Вы явно ввели что-то не то...\n";
@@ -86,7 +76,6 @@ extern int mainMenu()
         break;
     }
     }
-
     system("pause");
     system("cls");
     return 1;
