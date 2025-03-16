@@ -171,7 +171,7 @@ namespace Form1 {
 				catch (FormatException^)
 				{
 					x = -1;
-					this->resultLabel->Text = "Некорректный ввод";
+					this->xTextBox->Text = "";
 				}
 			}
 		}
@@ -189,7 +189,7 @@ namespace Form1 {
 				catch (FormatException^)
 				{
 					n = -1;
-					this->resultLabel->Text = "Некорректный ввод";
+					this->nTextBox->Text = "";
 				}
 			}
 		}
