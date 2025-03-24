@@ -47,53 +47,35 @@ extern int mainMenu()
     switch (n)
     {
     case 1:
-    {
         inputStruct();
         break;
-    }
     case 2:
-    {
         sorting();
         break;
-    }
     case 3:
-    {
         finder();
         break;
-    }
     case 4:
-    {
         remaking();
         break;
-    }
     case 5:
-    {
         deleting();
         break;
-    }
     case 6:
-    {
         outputStruct(0, 0);
         break;
-    }
     case 7:
-    {
         deleteFile();
         break;
-    }
     case 8:
-    {
         return 0;
-    }
     default:
-    {
         std::cerr << "Вы явно ввели что-то не то...\n";
         std::cerr << "Press any key to continue...\n";
         system("pause");
         system("cls");
         mainMenu();
         break;
-    }
     }
 
     system("pause");
