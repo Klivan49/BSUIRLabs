@@ -19,13 +19,13 @@ extern int inputInteger()
     }
 }
 
-void insert(ListPtr* start, int value) {
-    ListPtr newP = new List;
+void insert(List** start, int value) {
+    List* newP = new List;
     if (newP != nullptr) {
         newP->number = value;
         newP->next = nullptr;
-        ListPtr previous = nullptr;
-        ListPtr current = *start;
+        List* previous = nullptr;
+        List* current = *start;
         // Поиск позиции для вставки (сортировка по возрастанию)
         while (current != nullptr && value > current->number) {
             previous = current;
@@ -45,14 +45,14 @@ void insert(ListPtr* start, int value) {
     }
 }
 
-void deleteAllOccurrences(ListPtr* s, int value) {
-    ListPtr previous = nullptr;
-    ListPtr current = *s;
+void deleteAllOccurrences(List** start, int value) {
+    List* previous = nullptr;
+    List* current = *start;
     while (current != nullptr) {
         if (current->number == value) {
-            ListPtr temp = current;
+            List* temp = current;
             if (previous == nullptr) { // Удаление первого элемента
-                *s = current->next;
+                *start = current->next;
             }
             else { // Удаление из середины или конца
                 previous->next = current->next;
@@ -67,11 +67,11 @@ void deleteAllOccurrences(ListPtr* s, int value) {
     }
 }
 
-void deleteDuplicates(ListPtr* s) {
-    ListPtr current = *s;
+void deleteDuplicates(List** start) {
+    List* current = *start;
     while (current != nullptr && current->next != nullptr) {
         if (current->number == current->next->number) {
-            ListPtr temp = current->next;
+            List* temp = current->next;
             current->next = current->next->next;
             delete temp;
         }
@@ -81,35 +81,35 @@ void deleteDuplicates(ListPtr* s) {
     }
 }
 
-int countList(ListPtr s) {
+int countList(List* start) {
     int count = 0;
-    while (s != nullptr) {
+    while (start != nullptr) {
         count++;
-        s = s->next;
+        start = start->next;
     }
     return count;
 }
 
-int findMin(ListPtr s) {
-    if (s == nullptr) {
+int findMin(List* strart) {
+    if (strart == nullptr) {
         std::cout << "Список пуст.\n";
         return -1; // Значение по умолчанию для пустого списка
     }
-    return s->number; // Первый элемент — минимальный (список отсортирован)
+    return strart->number; // Первый элемент — минимальный (список отсортирован)
 }
 
-int findMax(ListPtr s) {
-    if (s == nullptr) {
+int findMax(List* start) {
+    if (start == nullptr) {
         std::cout << "Список пуст.\n";
         return -1; // Значение по умолчанию для пустого списка
     }
-    while (s->next != nullptr) { // Последний элемент — максимальный
-        s = s->next;
+    while (start->next != nullptr) { // Последний элемент — максимальный
+        start = start->next;
     }
-    return s->number;
+    return start->number;
 }
 
-void printList(ListPtr current) {
+void printList(List* current) {
     if (current == nullptr) {
         std::cout << "Список пуст.\n";
     }
@@ -123,8 +123,8 @@ void printList(ListPtr current) {
     }
 }
 
-bool isEmpty(ListPtr s) {
-    return s == nullptr;
+bool isEmpty(List* start) {
+    return start == nullptr;
 }
 
 void instructions() {

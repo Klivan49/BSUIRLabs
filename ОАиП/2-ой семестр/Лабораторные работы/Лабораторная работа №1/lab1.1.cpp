@@ -15,7 +15,8 @@ int main()
 
 extern int mainMenu()
 {
-    int n, numberOfJobs = -1;
+    char n = '0';
+    int numberOfJobs = -1;
     std::cout << "Что вы хотите сделать?"
         "\n1 -- Добавить работу"
         "\n2 -- Отсортировать работы"
@@ -25,10 +26,11 @@ extern int mainMenu()
         "\n6 -- Вывести на экран список работ"
         "\n7 -- Удалить файл(если была ошибка при его создании)"
         "\n8 -- Выйти\n";
-    n = inputInteger();
+    while(n < '1' || n > '8')
+        n = _getch();
     system("cls");
 
-    if (n > 1 && n < 7)
+    if (n > '1' && n < '7')
     {
         std::ifstream inFile("numberOfJobs.txt");
         if (inFile) {
@@ -46,28 +48,28 @@ extern int mainMenu()
 
     switch (n)
     {
-    case 1:
+    case '1':
         inputStruct();
         break;
-    case 2:
+    case '2':
         sorting();
         break;
-    case 3:
+    case '3':
         finder();
         break;
-    case 4:
+    case '4':
         remaking();
         break;
-    case 5:
+    case '5':
         deleting();
         break;
-    case 6:
+    case '6':
         outputStruct(0, 0);
         break;
-    case 7:
+    case '7':
         deleteFile();
         break;
-    case 8:
+    case '8':
         return 0;
     default:
         std::cerr << "Вы явно ввели что-то не то...\n";

@@ -6,7 +6,7 @@
 #include <sstream>
 #include <string>
 
-ListPtr start = nullptr; // Начало списка
+List* start = nullptr; // Начало списка
 
 int main()
 {
@@ -18,9 +18,10 @@ int main()
 int mainMenu() 
 {
     int elem;
-    char choice;
+    char choice = '0';
     instructions(); // Вывод меню
-    choice = _getch();
+    while(choice < '1' || choice > '6')
+        choice = _getch();
     system("cls");
     std::string input;
     switch (choice)
