@@ -22,7 +22,7 @@ extern int inputInteger()
         else {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "\nНеверный ввод. Пожалуйста, введите целое число: ";
+            std::cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: ";
         }
     }
 }
@@ -37,7 +37,7 @@ extern float inputDigit() {
         else {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Неверный ввод. Пожалуйста, введите число: ";
+            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: ";
         }
     }
 }
@@ -49,7 +49,7 @@ std::vector<int> linearSearch(const std::vector<int>& arr, int target) {
             positions.push_back(i);
         }
     }
-    return positions; // Если вектор пуст, элемент не найден
+    return positions; // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 }
 
 int binarySearch(const std::vector<int>& arr, int target, int left, int right) 
@@ -57,7 +57,7 @@ int binarySearch(const std::vector<int>& arr, int target, int left, int right)
     while (left <= right) {
         int mid = left + (right - left) / 2;
         if (arr[mid] == target) {
-            // Нашли элемент, проверяем, первая ли это позиция
+            // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             while (mid > 0 && arr[mid - 1] == target) {
                 mid--;
             }
@@ -70,55 +70,55 @@ int binarySearch(const std::vector<int>& arr, int target, int left, int right)
             left = mid + 1;
         }
     }
-    return -1; // Элемент не найден
+    return -1; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 }
 
 void finder(const std::vector<int>& arr, const std::vector<int>& sorted) {
     if (arr.empty()) {
-        std::cout << "Массив пуст. Пожалуйста, введите массив сначала." << std::endl;
+        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ." << std::endl;
         return;
     }
-    std::cout << "Введите значение элемента, позицию которого хотите найти в массиве: ";
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
     int target = inputInteger();
 
-    // Линейный поиск
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     auto start = std::chrono::high_resolution_clock::now();
     std::vector<int> linearPositions = linearSearch(arr, target);
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
 
     if (!linearPositions.empty()) {
-        std::cout << "Линейный поиск: Элемент найден на позициях: ";
+        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
         for (int pos : linearPositions) {
             std::cout << pos << " ";
         }
         std::cout << std::endl;
     }
     else {
-        std::cout << "Линейный поиск: Элемент не найден" << std::endl;
+        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
     }
-    std::cout << "Время линейного поиска:\n" << duration.count() * 1000000
-        << " наносекунд\n" << duration.count() * 1000
-        << " милисекунд\n" << duration.count()
-        << " секунд\n" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ:\n" << duration.count() * 1000000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count() * 1000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count()
+        << " пїЅпїЅпїЅпїЅпїЅпїЅ\n" << std::endl;
 
-    // Бинарный поиск
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     start = std::chrono::high_resolution_clock::now();
     int binaryPosition = binarySearch(sorted, target, 0, sorted.size() - 1);
     end = std::chrono::high_resolution_clock::now();
     duration = end - start;
 
     if (binaryPosition != -1) {
-        std::cout << "Бинарный поиск: Элемент найден на позиции " << binaryPosition
-            << " в отсортированном массиве" << std::endl;
+        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << binaryPosition
+            << " пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
     }
     else {
-        std::cout << "Бинарный поиск: Элемент не найден в отсортированном массиве" << std::endl;
+        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
     }
-    std::cout << "Время бинарного поиска:\n" << duration.count() * 1000000
-        << " наносекунд\n" << duration.count() * 1000
-        << " милисекунд\n" << duration.count()
-        << " секунд" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ:\n" << duration.count() * 1000000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count() * 1000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count()
+        << " пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 }
 
 void printArray(const std::vector<int>& arr) 
@@ -132,14 +132,14 @@ void printArray(const std::vector<int>& arr)
 extern void inputArray()
 {
     char n;
-    std::cout << "Вы хотите сами задать массив или через рандом?(1/2)\n3 -- случайно нажал(a):\n";
+    std::cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ?(1/2)\n3 -- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ(a):\n";
     n = _getch();
     switch(n)
     {
     case '1':
     {
         std::string input;
-        std::cout << "Введите элементы массива через пробел (Enter -- конец массива)" << std::endl;
+        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (Enter -- пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)" << std::endl;
         std::getline(std::cin, input);
 
         std::istringstream iss(input);
@@ -150,50 +150,50 @@ extern void inputArray()
         }
 
         if (iss.fail() && !iss.eof()) {
-            std::cerr << "Ошибка ввода: некорректное значение в массиве" << std::endl;
+            std::cerr << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
         }
-        std::cout << "Хотите вывести массив?(y/n)" << std::endl;
+        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
         char ch = _getch();
-        if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+        if (ch == 'y' || ch == 'Y' || ch == 'пїЅ' || ch == 'пїЅ')
         {
-            std::cout << "Получившийся массив:\n";
+            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ:\n";
             printArray(array);
         }
-        else if (ch == 'n' || ch == 'N' || ch == 'т' || ch == 'Т')
+        else if (ch == 'n' || ch == 'N' || ch == 'пїЅ' || ch == 'пїЅ')
         {
         }
-        else std::cout << "Вы ввели что-то не то :3";
+        else std::cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅ пїЅпїЅ :3";
         break;
     }
     case '2':
     {
-        std::cout << "Введите количество элементов массива: ";
+        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
         int n = inputInteger();
         if (n > 100000)
         {
-            std::cout << "Слишком много элементов";
+            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
             return;
         }
-        std::cout << "Введите нижню границу случайного числа: ";
+        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: ";
         int start = inputInteger();
-        std::cout << "Введите верхнюю границу случайного числа: ";
+        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: ";
         int end = inputInteger();
         for (int i = 0; i < n; i++)
         {
             int value = rand() % (end - start + 1) + start;
             array.push_back(value);
         }
-        std::cout << "Хотите вывести массив?(y/n)" << std::endl;
+        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
         char ch = _getch();
-        if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+        if (ch == 'y' || ch == 'Y' || ch == 'пїЅ' || ch == 'пїЅ')
         {
-            std::cout << "Получившийся массив:\n";
+            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ:\n";
             printArray(array);
         }
         else if (ch == 'n' || ch == 'N')
         {
         }
-        else std::cout << "Вы ввели что-то не то :3";
+        else std::cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅ пїЅпїЅ :3";
         break;
     }
     case '3':
@@ -202,7 +202,7 @@ extern void inputArray()
     }
     default:
     {
-        std::cout << "Вы ввели что-то не то...";
+        std::cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅ пїЅпїЅ...";
         break;
     }
     }
@@ -222,26 +222,26 @@ extern void bubbleSort(std::vector<int>& arr)
     }
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
-    std::cout << "Время пузырьковой сортировки:\n" << duration.count() * 1000000 
-        << " наносекунд\n" << duration.count() * 1000 
-        << " милисекунд\n" << duration.count() 
-        << " секунд" << std::endl;
-    std::cout << "Хотите вывести массивы?(y/n)" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:\n" << duration.count() * 1000000 
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count() * 1000 
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count() 
+        << " пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
     char ch = _getch();
-    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+    if (ch == 'y' || ch == 'Y' || ch == 'пїЅ' || ch == 'пїЅ')
     {
-        std::cout << "\nИсходный массив: ";
+        std::cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
         printArray(array);
-        std::cout << "\n\n\n\nОтсортированный массив: ";
+        std::cout << "\n\n\n\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
         printArray(sorted);
     }
-    else if (ch == 'n' || ch == 'N' || ch == 'т' || ch == 'Т')
+    else if (ch == 'n' || ch == 'N' || ch == 'пїЅ' || ch == 'пїЅ')
     {
-        std::cout << "Вы ввели что-то не то :3";
+        std::cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅ пїЅпїЅ :3";
     }
-    std::cout << "Хотите провести поиск?(y/n)" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
     ch = _getch();
-    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+    if (ch == 'y' || ch == 'Y' || ch == 'пїЅ' || ch == 'пїЅ')
         finder(arr, sorted);
 }
 
@@ -261,26 +261,26 @@ extern void selectionSort(std::vector<int>& arr)
     }
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
-    std::cout << "Время сортировки выборки:\n" << duration.count() * 1000000
-        << " наносекунд\n" << duration.count() * 1000
-        << " милисекунд\n" << duration.count()
-        << " секунд" << std::endl;
-    std::cout << "Хотите вывести массивы?(y/n)" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ:\n" << duration.count() * 1000000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count() * 1000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count()
+        << " пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
     char ch = _getch();
-    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+    if (ch == 'y' || ch == 'Y' || ch == 'пїЅ' || ch == 'пїЅ')
     {
-        std::cout << "\nИсходный массив: ";
+        std::cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
         printArray(array);
-        std::cout << "\n\n\n\nОтсортированный массив: ";
+        std::cout << "\n\n\n\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
         printArray(sorted);
     }
-    else if (ch == 'n' || ch == 'N' || ch == 'т' || ch == 'Т')
+    else if (ch == 'n' || ch == 'N' || ch == 'пїЅ' || ch == 'пїЅ')
     {
-        std::cout << "Вы ввели что-то не то :3";
+        std::cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅ пїЅпїЅ :3";
     }
-    std::cout << "Хотите провести поиск?(y/n)" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
     ch = _getch();
-    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+    if (ch == 'y' || ch == 'Y' || ch == 'пїЅ' || ch == 'пїЅ')
         finder(arr, sorted);
 }
 
@@ -300,27 +300,27 @@ extern void insertionSort(std::vector<int>& arr)
     }
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
-    std::cout << "Время сортировки вставкой:\n" << duration.count() * 1000000
-        << " наносекунд\n" << duration.count() * 1000
-        << " милисекунд\n" << duration.count()
-        << " секунд" << std::endl;
-    std::cout << "Хотите вывести массивы?(y/n)" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:\n" << duration.count() * 1000000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count() * 1000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count()
+        << " пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
     char ch = _getch();
-    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+    if (ch == 'y' || ch == 'Y' || ch == 'пїЅ' || ch == 'пїЅ')
     {
-        std::cout << "\nИсходный массив: ";
+        std::cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
         printArray(array);
-        std::cout << "\n\n\n\nОтсортированный массив: ";
+        std::cout << "\n\n\n\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
         printArray(sorted);
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-    else if (ch == 'n' || ch == 'N' || ch == 'т' || ch == 'Т')
+    else if (ch == 'n' || ch == 'N' || ch == 'пїЅ' || ch == 'пїЅ')
     {
-        std::cout << "Вы ввели что-то не то :3";
+        std::cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅ пїЅпїЅ :3";
     }
-    std::cout << "Хотите провести поиск?(y/n)" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
     ch = _getch();
-    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+    if (ch == 'y' || ch == 'Y' || ch == 'пїЅ' || ch == 'пїЅ')
         finder(arr, sorted);
 }
 
@@ -341,26 +341,26 @@ extern void shellSort(std::vector<int>& arr)
     }
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
-    std::cout << "Время сортировки методом Шелла:\n" << duration.count() * 1000000
-        << " наносекунд\n" << duration.count() * 1000
-        << " милисекунд\n" << duration.count()
-        << " секунд" << std::endl;
-    std::cout << "Хотите вывести массивы?(y/n)" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ:\n" << duration.count() * 1000000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count() * 1000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count()
+        << " пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
     char ch = _getch();
-    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+    if (ch == 'y' || ch == 'Y' || ch == 'пїЅ' || ch == 'пїЅ')
     {
-        std::cout << "\nИсходный массив: ";
+        std::cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
         printArray(array);
-        std::cout << "\n\n\n\nОтсортированный массив: ";
+        std::cout << "\n\n\n\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
         printArray(sorted);
     }
     else if (ch != 'n' && ch != 'N')
     {
-        std::cout << "Окей";
+        std::cout << "пїЅпїЅпїЅпїЅ";
     }
-    std::cout << "Хотите провести поиск?(y/n)" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
     ch = _getch();
-    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+    if (ch == 'y' || ch == 'Y' || ch == 'пїЅ' || ch == 'пїЅ')
         finder(arr, sorted);
 }
 
@@ -387,26 +387,26 @@ extern void quickSortWrapper(std::vector<int>& arr) {
     quickSort(sorted, 0, sorted.size() - 1);
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
-    std::cout << "Время сортировки методом Хоора:\n" << duration.count() * 1000000
-        << " наносекунд\n" << duration.count() * 1000
-        << " милисекунд\n" << duration.count()
-        << " секунд" << std::endl;
-    std::cout << "Хотите вывести массивы?(y/n)" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ:\n" << duration.count() * 1000000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count() * 1000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count()
+        << " пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
     char ch = _getch();
-    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+    if (ch == 'y' || ch == 'Y' || ch == 'пїЅ' || ch == 'пїЅ')
     {
-        std::cout << "\nИсходный массив: ";
+        std::cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
         printArray(array);
-        std::cout << "\n\n\n\nОтсортированный массив: ";
+        std::cout << "\n\n\n\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
         printArray(sorted);
     }
     else if (ch != 'n' && ch != 'N')
     {
-        std::cout << "Вы ввели что-то не то :3";
+        std::cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅ пїЅпїЅ :3";
     }
-    std::cout << "Хотите провести поиск?(y/n)" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
     ch = _getch();
-    if (ch == 'y' || ch == 'Y' || ch == 'Н' || ch == 'н')
+    if (ch == 'y' || ch == 'Y' || ch == 'пїЅ' || ch == 'пїЅ')
         finder(arr, sorted);
 }
 
@@ -460,24 +460,24 @@ extern void mergeSortWrapper(std::vector<int>& arr)
     mergeSort(sorted, 0, sorted.size() - 1);
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
-    std::cout << "Время сортировки методом слияния:\n" << duration.count() * 1000000
-        << " наносекунд\n" << duration.count() * 1000
-        << " милисекунд\n" << duration.count()
-        << " секунд" << std::endl;
-    std::cout << "Хотите вывести массивы?(y/n)" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ:\n" << duration.count() * 1000000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count() * 1000
+        << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << duration.count()
+        << " пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
     char ch = _getch();
     if (ch == 'y' || ch == 'Y')
     {
-        std::cout << "\nИсходный массив: ";
+        std::cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
         printArray(array);
-        std::cout << "\n\n\n\nОтсортированный массив: ";
+        std::cout << "\n\n\n\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
         printArray(sorted);
     }
     else if (ch != 'n' && ch != 'N')
     {
-        std::cout << "Вы ввели что-то не то :3";
+        std::cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅ пїЅпїЅ :3";
     }
-    std::cout << "Хотите провести поиск?(y/n)" << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ?(y/n)" << std::endl;
     ch = _getch();
     if (ch == 'y' || ch == 'Y')
         finder(arr, sorted);

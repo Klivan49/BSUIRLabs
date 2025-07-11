@@ -5,9 +5,13 @@
 #include <stdio.h>
 #include "lab6.h"
 #include <time.h>
+#include <Windows.h>
 
-int main() {
-    system("chcp 1251");
+int main() 
+{
+    system("chcp 65001");
+    system("cls");
+    SetConsoleOutputCP(65001);
     char* locale = setlocale(LC_ALL, "");
     srand(time(NULL));
     struct tree* root = NULL;
@@ -15,32 +19,37 @@ int main() {
     int value, sum;
 
     while (choice != 6) {
-        std::cout << "1. Âñòàâèòü ýëåìåíò â äåðåâî\n"
-                  << "2. Îïðåäåëèòü ìàêñèìàëüíóþ ñóììó ïóòè \n"
-                  << "3. Óäàëèòü ýëåìåíò èç äåðåâà \n"
-                  << "4. Âûâåñòè âñå ýëåìåíòû äåðåâà\n"
-                  << "5. Âûâåñòè ýëåìåíòû â ïîðÿäêå âîçðàñòàíèÿ\n"
-                  << "6. Âûéòè èç ïðîãðàììû\n"
-                  << "7. Áàëàíñèðîâùèê äåðåâà\n"
-                  << "Ââåäèòå âûáîð: ";
-        while (choice < '1' || choice > '7')
+        std::cout << "1. Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ Ð² Ð´ÐµÑ€ÐµÐ²Ð¾\n"
+                  << "2. Ð Ð°ÑÑÑ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½ÑƒÑŽ ÑÑƒÐ¼Ð¼Ñƒ Ð¿ÑƒÑ‚Ð¸ \n"
+                  << "3. Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð¸Ð· Ð´ÐµÑ€ÐµÐ²Ð° \n"
+                  << "4. Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ Ð´ÐµÑ€ÐµÐ²Ð¾\n"
+                  << "5. Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ Ð² Ð¿Ð¾Ñ€ÑÐ´ÐºÐµ Ð²Ð¾Ð·Ñ€Ð°ÑÑ‚Ð°Ð½Ð¸Ñ\n"
+                  << "6. Ð’Ñ‹Ñ…Ð¾Ð´\n"
+                  << "7. Ð‘Ð°Ð»Ð°Ð½ÑÐ¸Ñ€Ð¾Ð²Ñ‰Ð¸Ðº Ð´ÐµÑ€ÐµÐ²Ð°\n"
+                  << "8. ÐÐ°Ð¹Ñ‚Ð¸ Ð²Ñ‚Ð¾Ñ€Ð¾Ð¹ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð² Ð´ÐµÑ€ÐµÐ²Ðµ\n"
+                  << "9. Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ 1 Ðº ÐºÐ°Ð¶Ð´Ð¾Ð¼Ñƒ Ð»Ð¸ÑÑ‚Ñƒ Ð¸ Ð²Ñ‹Ñ‡ÐµÑÑ‚ÑŒ 1 Ð¸Ð· ÐºÐ°Ð¶Ð´Ð¾Ð³Ð¾ ÑƒÐ·Ð»Ð°\n"
+                  << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ñ‹Ð±Ð¾Ñ€: ";
+        while (choice < '1' || choice > '9')
             choice = _getch();
         system("cls");
         switch (choice) {
         case '1':
         {
-            std::cout << "Ñàìè ââåä¸òå ýëåìåíòû èëè õîòèòå ðàíäîìíî?(p/r)";
+            std::cout << "Ð¡Ð°Ð¼Ð¸ Ð²Ð²ÐµÐ´Ñ‘Ñ‚Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ Ð¸Ð»Ð¸ Ñ€Ð°Ð½Ð´Ð¾Ð¸Ð¼Ð½Ð¾?(p/r)\n";
             char random = '0';
             do {
                 random = _getch();
             } while (random != 'r' && random != 'R'
-                && random != 'ê' && random != 'Ê'
-                && random != 'r' && random != 'R'
-                && random != 'ê' && random != 'Ê');
+                && random != 'Ðº' && random != 'Ðš'
+                && random != 'p' && random != 'P'
+                && random != 'Ð·' && random != 'Ð—');
+
             switch (random)
             {
-            case 'r' || 'R' || 'ê' || 'Ê':
-                std::cout << "Ñêîëüêî ýëåìåíòîâ õîòèòå äîáàâèòü?\n";
+            case 'r':
+            case 'R':
+            {
+                std::cout << "Ð¡ÐºÐ¾Ð»ÑŒÐºÐ¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ?\n";
                 int amount = inputInteger();
                 for (int i = 0; i < amount; i++)
                 {
@@ -50,33 +59,40 @@ int main() {
                 system("cls");
                 break;
             }
-            case 'p' || 'P' || 'ç' || 'Ç':
+            case 'p':
+            case 'P':
             {
-                    std::cout << "Ââåäèòå çíà÷åíèå äëÿ âñòàâêè: ";
+                std::cout << "Ð¡ÐºÐ¾Ð»ÑŒÐºÐ¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ?\n";
+                int amount = inputInteger();
+                std::cout << "Ð’Ð²Ð¾Ð´Ð¸Ñ‚Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹\n";
+                for (int i = 0; i < amount; i++)
+                {
                     value = inputInteger();
                     root = treeNewElement(root, value);
-                    system("cls");
-                    break;
+                }
+                system("cls");
+                break;
             }
-            return 0;
+            }
+            break;
         }
-        case '2':
+         case '2':
             sum = findMaxSumPath(root);
-            std::cout << "Ìàêñèìàëüíàÿ ñóììà ïóòè = " << sum;
+            std::cout << "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ ÑÑƒÐ¼Ð¼Ð° Ð¿ÑƒÑ‚Ð¸ = " << sum << std::endl;
             break;
         case '3':
-            std::cout << "Ââåäèòå çíà÷åíèå äëÿ óäàëåíèÿ: ";
+            std::cout << "ÐšÐ°ÐºÐ¾Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð²Ñ‹ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ Ð¸Ð· Ð´ÐµÑ€ÐµÐ²Ð°?: ";
             value = inputInteger();
             root = deleteElement(root, value);
-            std::cout << "óäàëåí ýëåìåíò %d\n", value;
+            std::cout << "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚ ÑƒÐ´Ð°Ð»Ñ‘Ð½ " << value;
             break;
         case '4':
-            std::cout << "Ýëåìåíòû äåðåâà: " << std::endl;
-            printTree(root, 1);
+            std::cout << "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ Ð´ÐµÑ€ÐµÐ²Ð°: " << std::endl;
+            printTree(root);
             std::cout << std::endl;
             break;
         case '5':
-            std::cout << "Ýëåìåíòû â ïîðÿäêå âîçðàñòàíèÿ: " << std::endl;
+            std::cout << "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ Ð² Ð¿Ð¾Ñ€ÑÐ´ÐºÐµ Ð²Ð¾Ð·Ñ€Ð°ÑÑ‚Ð°Ð½Ð¸Ñ: " << std::endl;
             inOrderTraversal(root);
             std::cout << std::endl;
             break;
@@ -86,11 +102,23 @@ int main() {
         case '7':
         {
             tree* balanced = balanceTree(root);
-            printTree(balanced, 1);
+            printTree(balanced);
+            break;
+        }
+        case '8':
+        {
+            int second = findSecondMinimum(root);
+            std::cout << "Ð’Ñ‚Ð¾Ñ€Ð¾Ð¹ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð² Ð´ÐµÑ€ÐµÐ²Ðµ: " << second << std::endl;
+            break;
+        }
+        case '9':
+        {
+            extraLeaves(root);
+            printTree(root);
             break;
         }
         default:
-            std::cout << "Íåâåðíûé âûáîð\n";
+            std::cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€\n";
         }
         system("pause");
         system("cls");

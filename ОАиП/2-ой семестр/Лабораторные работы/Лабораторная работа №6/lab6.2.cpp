@@ -71,13 +71,11 @@ tree* treeNewElement(struct tree* root, int data) {
 }
 
 
-// 1. Подсчёт числа узлов в дереве
 int countNodes(tree* root) {
     if (!root) return 0;
     return 1 + countNodes(root->left) + countNodes(root->right);
 }
 
-// 2. Сбор значений через in-order обход в массив
 void storeInorder(tree* root, int* arr, int& idx) {
     if (!root) return;
     storeInorder(root->left, arr, idx);
@@ -85,12 +83,10 @@ void storeInorder(tree* root, int* arr, int& idx) {
     storeInorder(root->right, arr, idx);
 }
 
-// 3. Построение сбалансированного BST из отсортированного массива
 tree* buildBalancedTree(int* arr, int start, int end) {
     if (start > end) return nullptr;
     int mid = (start + end) / 2;
     tree* root = (tree*)malloc(sizeof(tree));
-    // Инициализируем вручную, так как конструкция через malloc не вызывает конструктор
     new (&root->data) int(arr[mid]);
     root->left = root->right = nullptr;
     // Рекурсия
@@ -99,7 +95,6 @@ tree* buildBalancedTree(int* arr, int start, int end) {
     return root;
 }
 
-// 4. Функция балансировки дерева (без STL)
 tree* balanceTree(tree* root) {
     if (!root) return nullptr;
     int n = countNodes(root);
@@ -114,30 +109,37 @@ tree* balanceTree(tree* root) {
 
 
 
+void printTree(const tree* root, const std::string& prefix, bool isLeft, bool isRoot)
+{
+    if (!root) return;
 
-void printTree(tree* root, int level) {
-    if (root == NULL)
-        return;
-    printTree(root->right, level + 1);
-    for (int i = 0; i < level; i++) 
-        std::cout << "\t";
-    printf("%d\n", root->data);
-    printTree(root->left, level + 1);
+    std::string rightPrefix = prefix + (isRoot ? "" : (isLeft ? "│   " : "    "));
+    printTree(root->right, rightPrefix, false, false);
+
+    if (isRoot) {
+        std::cout << root->data << "\n";
+    }
+    else {
+        std::cout << prefix << (isLeft ? "└── " : "┌── ") << root->data << "\n";
+    }
+
+    std::string leftPrefix = prefix + (isRoot ? "" : (isLeft ? "    " : "│   "));
+    printTree(root->left, leftPrefix, true, false);
 }
+
+
+
 
 
 tree* findMin(struct tree* root) {
     if (root == NULL) {
-        //если дерево пустое, возвращаем NULL
         return NULL;
     }
 
     if (root->left == NULL) {
-        //если левое поддерево пустое, текущий узел является минимальным
         return root;
     }
 
-    //рекурсивно ищем минимальный элемент в левом поддереве
     return findMin(root->left);
 }
 
@@ -176,7 +178,7 @@ tree* deleteElement(struct tree* root, int data)
     return root;
 }
 
-void inOrderTraversal(struct tree* root) {
+void inOrderTraversal(tree* root) {
     if (root != NULL) {
         inOrderTraversal(root->left);
         printf("%d ", root->data);
@@ -198,3 +200,45 @@ int findMaxSumPath(tree* root)
     return root->data + (leftSum > rightSum ? leftSum : rightSum);
 }
 
+
+int findSecondMinimum(tree* root) {
+    if (!root) return -1;
+
+    int n = countNodes(root);
+    if (n < 2) return -1;
+
+
+    int* arr = (int*)malloc(n * sizeof(int));
+    int idx = 0;
+    storeInorder(root, arr, idx);
+
+    int first = arr[0];
+
+
+    int second = -1;
+    for (int i = 1; i < n; ++i) {
+        if (arr[i] > first) {
+            second = arr[i];
+            break;
+        }
+
+    }
+
+    free(arr);
+    return second;
+}
+
+void extraLeaves(tree* root)
+{
+    if (!root) return;              
+
+    if (root->left == nullptr && root->right == nullptr) 
+    {
+        root->data += 1; 
+    }
+    else {
+        root->data -= 1; 
+        extraLeaves(root->left);
+        extraLeaves(root->right);
+    }
+}

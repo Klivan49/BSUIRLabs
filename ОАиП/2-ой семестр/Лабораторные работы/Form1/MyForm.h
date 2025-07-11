@@ -12,7 +12,7 @@ namespace Form1 {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Сводка для MyForm
+	/// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ MyForm
 	/// </summary>
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
@@ -21,13 +21,13 @@ namespace Form1 {
 		{
 			InitializeComponent();
 			//
-			//TODO: добавьте код конструктора
+			//TODO: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Освободить все используемые ресурсы.
+		/// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 		/// </summary>
 		~MyForm()
 		{
@@ -54,14 +54,14 @@ namespace Form1 {
 
 	private:
 		/// <summary>
-		/// Обязательная переменная конструктора.
+		/// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
+		/// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
+		/// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -79,7 +79,7 @@ namespace Form1 {
 			this->mainBtn->Name = L"mainBtn";
 			this->mainBtn->Size = System::Drawing::Size(289, 107);
 			this->mainBtn->TabIndex = 0;
-			this->mainBtn->Text = L"Рассчитать Y";
+			this->mainBtn->Text = L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Y";
 			this->mainBtn->UseVisualStyleBackColor = true;
 			this->mainBtn->Click += gcnew System::EventHandler(this, &MyForm::mainBtn_Click);
 			// 
@@ -90,7 +90,7 @@ namespace Form1 {
 			this->xLabel->Name = L"xLabel";
 			this->xLabel->Size = System::Drawing::Size(115, 25);
 			this->xLabel->TabIndex = 1;
-			this->xLabel->Text = L"Введите X";
+			this->xLabel->Text = L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅ X";
 			// 
 			// nLabel
 			// 
@@ -99,7 +99,7 @@ namespace Form1 {
 			this->nLabel->Name = L"nLabel";
 			this->nLabel->Size = System::Drawing::Size(113, 25);
 			this->nLabel->TabIndex = 2;
-			this->nLabel->Text = L"Введите n";
+			this->nLabel->Text = L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅ n";
 			// 
 			// xTextBox
 			// 
@@ -155,7 +155,7 @@ namespace Form1 {
 				y = power(x, n);                
 				this->resultLabel->Text = "Result: " + y;
 			}
-			else this->resultLabel->Text = "Вы чего-то не так ввели(или не ввели)";
+			else this->resultLabel->Text = "пїЅпїЅ пїЅпїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ(пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ)";
 			
 		}
 		private: System::Void xTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e)

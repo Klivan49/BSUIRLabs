@@ -21,31 +21,31 @@ int mainMenu(PtrToStack *stack1, PtrToStack *stack2)
     char choice = '0';
     system("cls");
     printf(
-    "1 -- Вводить элементы в стеки\n"
-    "2 -- Вывести стеки\n"
-    "3 -- Удалить стеки\n"
-    "4 -- Выйти\n"
+    "1 -- пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ\n"
+    "2 -- пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ\n"
+    "3 -- пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ\n"
+    "4 -- пїЅпїЅпїЅпїЅпїЅ\n"
     );
     while(choice < '1' || choice > '4')
         choice = _getch();
     if ((choice == '2' || choice == '3') && stackIsExist == 0)
     {
-        printf("Стеков нет, сперва создай их :3\n");
+        printf("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ :3\n");
         system("pause");
         choice = '\n';
     }
     switch (choice)
     {
     case '1':
-        printf("Введите длину стека");
+        printf("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
         int length = -1;
         char* arr;
         scanf_s("%d", &length);
         getchar();
         arr = malloc((length+1)*sizeof(char));
-        printf("Введите строку (она будет разбита на символы и рассортирована по стекам)\n");
+        printf("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ)\n");
         fgets(arr, length+1, stdin);
-        if (arr[length - 1] == '\n') arr[length - 1] = '\0'; // Удаляем символ новой строки
+        if (arr[length - 1] == '\n') arr[length - 1] = '\0'; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         enterStacks(stack1, stack2, arr, length);
         stackIsExist = 1;
         length = -1;
@@ -58,11 +58,11 @@ int mainMenu(PtrToStack *stack1, PtrToStack *stack2)
         stackDelete(*stack1);
         stackDelete(*stack2);
         stackIsExist = 0;
-        printf("Стеки удалены\n");
+        printf("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n");
         system("pause");
         break;
     case '4': 
-        printf("Закончили упражение\n");
+        printf("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n");
         return 0;
     default:
         break;

@@ -1,0 +1,3 @@
+C:\Programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Лабораторная работа №8\x64\Debug\Лабораторная работа №8.vcxproj.AssemblyReference.cache
+C:\Programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Лабораторная работа №8\x64\Debug\Лабораторная работа №8.vcxproj.GenerateResource.cache
+C:\Programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Лабораторная работа №8\x64\Debug\Лабораторнаяработа8.lab8.resources

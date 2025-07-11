@@ -1,0 +1,9 @@
+﻿  lab8.cpp
+C:\Programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Лабораторная работа №8\lab8.h(301,44): warning C5307: 'System::String ^System::String::Replace(wchar_t,wchar_t)': argument (1) converted from 'char' to 'wchar_t'. Missing 'L' encoding-prefix for character literal?
+  (компиляция исходного файла "lab8.cpp")
+  
+C:\Programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\Лабораторная работа №8\lab8.h(301,44): warning C5307: 'System::String ^System::String::Replace(wchar_t,wchar_t)': argument (2) converted from 'char' to 'wchar_t'. Missing 'L' encoding-prefix for character literal?
+  (компиляция исходного файла "lab8.cpp")
+  
+  lab8.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  Лабораторная работа №8.vcxproj -> C:\Programming\BSUIRLabs\ОАиП\2-ой семестр\Лабораторные работы\x64\Debug\Лабораторная работа №8.exe
